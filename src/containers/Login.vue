@@ -1,6 +1,5 @@
 <template>
   <div id="login">
-    woshi login
     <userLogin></userLogin>
   </div>
 </template>
@@ -11,8 +10,6 @@ export default {
   name: 'Login',
   data () {
     return {
-      alertDanger: false,
-      danger: null,
       msg: 'Welcome to Your Vue.js App'
     }
   },

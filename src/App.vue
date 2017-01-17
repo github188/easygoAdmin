@@ -1,21 +1,21 @@
 <template>
-  <div id="app">
+  <div id="app" :class="['skin-blue-light', 'fixed', 'sidebar-mini', sidebar ? 'sidebar-collapse' : '']">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  computed: {
+    sidebar () {
+      return this.$store.state.admin.sidebarToggle
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
   #app,
   body,
   html {

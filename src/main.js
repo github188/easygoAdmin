@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './routes'
 import store from './stores'
-// 启用插件
 
 // 创建vue实例并渲染到app
 new Vue({
