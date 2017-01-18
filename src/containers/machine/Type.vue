@@ -1,9 +1,9 @@
 <template>
-  <div>hehehe</div>
+  <MachineTypeList></MachineTypeList>
 </template>
 
 <script>
-  // import MachineTypeList from '../../components/machine/MachineTypeList'
+  import MachineTypeList from '../../components/machine/MachineTypeList'
   export default{
     name: 'MachineType',
     data () {
@@ -12,7 +12,7 @@
       }
     },
     components: {
-
+      MachineTypeList
     }
   }
 </script>

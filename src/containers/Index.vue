@@ -3,7 +3,7 @@
     <NavbarMain></NavbarMain>
     <AdminAlert></AdminAlert>
     <div class="content-wrapper ng-scope" style="min-height: 142px;">
-      <router-view></router-view>
+
     </div>
     <footer class="main-footer">
       <p class="center-block text-center ng-binding">© 2017 前海易购 版权所有</p>
