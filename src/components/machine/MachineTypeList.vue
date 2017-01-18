@@ -8,22 +8,22 @@
     </h3>
     <div us-spinner spinner-key="machine-type-list-spinner" class="box-body table-responsive">
       <table class="table table-striped table-hover ">
-        <!--<tr>-->
-          <!--<th>ID</th>-->
-          <!--<th>类型名称</th>-->
-          <!--<th>货道行数</th>-->
-          <!--<th>货道列数</th>-->
-          <!--<th>屏幕尺寸</th>-->
-          <!--<th>触屏</th>-->
-          <!--<th>选货按键</th>-->
-          <!--<th>数字键盘</th>-->
-          <!--<th>控制板类型</th>-->
-          <!--<th>操作-->
-            <!--<button class="btn btn-xs btn-default pull-right"-->
-                    <!--@click="refreshData(true)">刷新-->
-            <!--</button>-->
-          <!--</th>-->
-        <!--</tr>-->
+        <tr>
+          <th>ID</th>
+          <th>类型名称</th>
+          <th>货道行数</th>
+          <th>货道列数</th>
+          <th>屏幕尺寸</th>
+          <th>触屏</th>
+          <th>选货按键</th>
+          <th>数字键盘</th>
+          <th>控制板类型</th>
+          <th>操作
+            <button class="btn btn-xs btn-default pull-right"
+                    @click="refreshData(true)">刷新
+            </button>
+          </th>
+        </tr>
 
         <!--<tr v-for="machineType in machineTypes">-->
           <!--<td>-->
