@@ -80,8 +80,8 @@
   </header>
 </template>
 <script>
-  import GotoUserInfo from '../user/userUserPersonalForm'
-  import EditPassword from '../user/userEditPassword'
+  import GotoUserInfo from '../user/UserUserPersonalForm'
+  import EditPassword from '../user/UserEditPassword'
   import axios from 'axios'
   export default{
     name: 'NavHeader',

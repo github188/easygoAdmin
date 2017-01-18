@@ -2,6 +2,7 @@
   <div id="container">
     <navbarMain></navbarMain>
     <AdminAlert></AdminAlert>
+    <router-view></router-view>
   </div>
 </template>
 <script>

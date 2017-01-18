@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import NavHeader from './header'
-  import NavSidebar from './sidebar'
+  import NavHeader from './Header'
+  import NavSidebar from './Sidebar'
   export default{
     data () {
       return {

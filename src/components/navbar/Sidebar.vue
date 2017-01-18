@@ -20,19 +20,19 @@
           </a>
           <transition name="slide-fade">
             <ul class="treeview-menu" v-show="show.machine">
-              <li :class="{'active': currentTab=='machine.type'}">
+              <li :class="{'active': currentItem=='machineType'}">
                 <a @click="gotoMachineType"><i class="fa fa-cog"></i>机器类型</a>
               </li>
-              <li :class="{'active': currentTab=='machine.aisle'}">
+              <li :class="{'active': currentItem=='machineAisle'}">
                 <a @click="gotoAisleTemplate"><i class="fa fa-table"></i>货道模板</a>
               </li>
-              <li :class="{'active': currentTab=='machine.list'}">
+              <li :class="{'active': currentItem=='machineList'}">
                 <a @click="gotoMachineList"><i class="fa fa-android"></i>设备列表</a>
               </li>
-              <li :class="{'active': currentTab=='machine.map'}">
+              <li :class="{'active': currentItem=='machineMap'}">
                 <a @click="gotoMachineMap"><i class="fa fa-map-marker"></i>设备地图</a>
               </li>
-              <li :class="{'active': currentTab=='machine.copy'}">
+              <li :class="{'active': currentItem=='machineCopy'}">
                 <a @click="gotoMachineCopy"><i class="fa fa-copy"></i>设备复制</a>
               </li>
             </ul>
@@ -47,10 +47,10 @@
           </a>
           <transition name="slide-fade">
             <ul class="treeview-menu" v-show="show.promotion">
-              <li>
+              <li :class="{'active': currentItem=='promotionDesc'}">
                 <a @click="gotoPromotionDesc"><i class="fa fa-th-large"></i>促销描述</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='promotionList'}">
                 <a @click="gotoPromotionList"><i class="fa fa-list"></i>促销活动</a>
               </li>
             </ul>
@@ -64,10 +64,10 @@
           </a>
           <transition name="slide-fade">
             <ul class="treeview-menu" v-show="show.advertise">
-              <li>
+              <li :class="{'active': currentItem=='advertiseList'}">
                 <a @click="gotoAdvertise"><i class="fa fa-list-alt"></i>广告资源</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='advertisePush'}">
                 <a @click="gotoFinishPushAdvertise"><i class="fa fa-desktop"></i>已推送广告</a>
               </li>
             </ul>
@@ -81,13 +81,13 @@
           </a>
           <transition name="slide-fade">
             <ul class="treeview-menu" v-show="show.report">
-              <li :class="{'active': currentTab=='report.list'}">
+              <li :class="{'active': currentItem=='reportList'}">
                 <a @click="gotoOrderList"><i class="fa fa-bar-chart"></i>订单列表</a>
               </li>
-              <li :class="{'active': currentTab=='report.fill'}">
+              <li :class="{'active': currentItem=='reportFill'}">
                 <a @click="gotoFillGoodsList"><i class="fa fa-area-chart"></i>补货统计</a>
               </li>
-              <li :class="{'active': currentTab=='report.profit'}">
+              <li :class="{'active': currentItem=='reportProfit'}">
                 <a @click="gotoProfitReport"><i class="fa fa-line-chart"></i>利润统计</a>
               </li>
             </ul>
@@ -101,38 +101,38 @@
           </a>
           <transition name="slide-fade">
             <ul class="treeview-menu" v-show="show.system">
-              <li>
+              <li :class="{'active': currentItem=='systemPaytype'}">
                 <a @click="gotoPayTypeList"><i class="fa fa-money"></i>支付方式</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='systemAndroidV'}">
                 <a @click="gotoAndroidVersionList"><i class="fa fa-android"></i>安卓版本</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='systemGoods'}">
                 <a @click="gotoGoods"><i class="fa fa-tag"></i>商品管理</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='systemEgocard'}">
                 <a @click="gotoEgocard"><i class="fa fa-credit-card"></i>充易购卡</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='systemEgocardcreate'}">
                 <a @click="gotoEgocardCreate"><i class="fa fa-credit-card"></i>生成易购卡</a>
               </li>
-              <li>
+              <li :class="{'active': currentItem=='systemMercardcreate'}">
                 <a @click="gotoMercardCreate"><i class="fa fa-credit-card"></i>生成商户卡</a>
               </li>
             </ul>
           </transition>
         </li>
-        <li>
+        <li :class="{'active': currentTab=='orgtree'}">
           <a @click="gotoOrgTree">
             <i class="fa fa-university"></i><span>组织管理</span>
           </a>
         </li>
-        <li>
+        <li :class="{'active': currentTab=='user'}">
           <a @click="gotoUserList">
             <i class="fa fa-users"></i><span>用户管理</span>
           </a>
         </li>
-        <li>
+        <li :class="{'active': currentTab=='role'}">
           <a @click="gotoRoleList">
             <i class="fa fa-cog"></i><span>角色管理</span>
           </a>
@@ -153,7 +153,9 @@
           advertise: false,
           report: false,
           system: false
-        }
+        },
+        currentTab: '',
+        currentItem: ''
       }
     },
     mounted () {
@@ -167,8 +169,10 @@
           this.show.advertise = false
           this.show.report = false
           this.show.system = false
+          this.currentTab = 'machine'
         } else {
           this.show.machine = false
+          this.currentTab = ''
         }
       },
       promotionBtn () {
@@ -178,8 +182,10 @@
           this.show.advertise = false
           this.show.report = false
           this.show.system = false
+          this.currentTab = 'promotion'
         } else {
           this.show.promotion = false
+          this.currentTab = ''
         }
       },
       advertiseBtn () {
@@ -189,8 +195,10 @@
           this.show.advertise = true
           this.show.report = false
           this.show.system = false
+          this.currentTab = 'advertise'
         } else {
           this.show.advertise = false
+          this.currentTab = ''
         }
       },
       reportBtn () {
@@ -200,8 +208,10 @@
           this.show.advertise = false
           this.show.report = true
           this.show.system = false
+          this.currentTab = 'report'
         } else {
           this.show.report = false
+          this.currentTab = ''
         }
       },
       systemBtn () {
@@ -211,72 +221,110 @@
           this.show.advertise = false
           this.show.report = false
           this.show.system = true
+          this.currentTab = 'system'
         } else {
           this.show.system = false
+          this.currentTab = ''
         }
       },
       gotoMachineType () {
+        this.currentItem = 'machineType'
         this.$router.push('/machine/type')
       },
       gotoAisleTemplate () {
+        this.currentItem = 'machineAisle'
         this.$router.push('/machine/aisle')
       },
       gotoMachineList () {
+        this.currentItem = 'machineList'
         this.$router.push('/machine/list')
       },
       gotoMachineMap () {
+        this.currentItem = 'machineMap'
         this.$router.push('/machine/map')
       },
       gotoMachineCopy () {
         this.$router.push('/machine/copy')
+        this.currentItem = 'machineCopy'
       },
       gotoPromotionDesc () {
+        this.currentItem = 'promotionDesc'
         this.$router.push('/promotion/desc')
       },
       gotoPromotionList () {
+        this.currentItem = 'promotionList'
         this.$router.push('/promotion/list')
       },
       gotoAdvertise () {
         this.$router.push('/advertise/list')
+        this.currentItem = 'advertiseList'
       },
       gotoFinishPushAdvertise () {
         this.$router.push('/advertise/pushList')
+        this.currentItem = 'advertisePush'
       },
       gotoOrderList () {
         this.$router.push('/report/order')
+        this.currentItem = 'reportList'
       },
       gotoFillGoodsList () {
         this.$router.push('/report/fillGoods')
+        this.currentItem = 'reportFill'
       },
       gotoProfitReport () {
         this.$router.push('/report/profit')
+        this.currentItem = 'reportProfit'
       },
       gotoPayTypeList () {
         this.$router.push('/system/sysPay')
+        this.currentItem = 'systemPaytype'
       },
       gotoAndroidVersionList () {
         this.$router.push('/system/sysAndroid')
+        this.currentItem = 'systemAndroidV'
       },
       gotoGoods () {
         this.$router.push('/goods/list')
+        this.currentItem = 'systemGoods'
       },
       gotoEgocard () {
         this.$router.push('/system/sysEgocard')
+        this.currentItem = 'systemEgocard'
       },
       gotoEgocardCreate () {
         this.$router.push('/system/sysEgocardCreate')
+        this.currentItem = 'systemEgocardcreate'
       },
       gotoMercardCreate () {
         this.$router.push('/system/sysMercardCreate')
+        this.currentItem = 'systemMercardcreate'
       },
       gotoOrgTree () {
         this.$router.push('/org')
+        this.show.machine = false
+        this.show.promotion = false
+        this.show.advertise = false
+        this.show.report = false
+        this.show.system = false
+        this.currentTab = 'orgtree'
       },
       gotoUserList () {
         this.$router.push('/user/list')
+        this.show.machine = false
+        this.show.promotion = false
+        this.show.advertise = false
+        this.show.report = false
+        this.show.system = false
+        this.currentTab = 'user'
       },
       gotoRoleList () {
         this.$router.push('/role/list')
+        this.show.machine = false
+        this.show.promotion = false
+        this.show.advertise = false
+        this.show.report = false
+        this.show.system = false
+        this.currentTab = 'role'
       }
     },
     components: {}
@@ -286,6 +334,7 @@
 <style lang="scss" scoped>
   a {
     cursor: pointer;
+    user-select:none;
   }
 
   .treeview-menu {
