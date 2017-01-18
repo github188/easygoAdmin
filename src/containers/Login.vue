@@ -1,11 +1,11 @@
 <template>
   <div id="login">
-    <userLogin></userLogin>
+    <UserLogin></UserLogin>
   </div>
 </template>
 
 <script>
-import userLogin from '../components/user/userLogin'
+import UserLogin from '../components/user/UserLogin'
 export default {
   name: 'Login',
   data () {
@@ -14,7 +14,7 @@ export default {
     }
   },
   components: {
-    userLogin
+    UserLogin
   }
 }
 </script>

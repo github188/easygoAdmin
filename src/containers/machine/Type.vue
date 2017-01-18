@@ -1,10 +1,9 @@
 <template>
-  <div>
-    我是machine type
-  </div>
+  <div>hehehe</div>
 </template>
 
 <script>
+  // import MachineTypeList from '../../components/machine/MachineTypeList'
   export default{
     name: 'MachineType',
     data () {
@@ -12,7 +11,9 @@
         msg: 'hello vue'
       }
     },
-    components: {}
+    components: {
+
+    }
   }
 </script>
 

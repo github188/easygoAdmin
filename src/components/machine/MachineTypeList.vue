@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <h3>
       设备类型&nbsp;&nbsp;&nbsp;&nbsp;
-      <button class="btn btn-primary" ng-click="openForm()" ng-if="$root.haveAuth('010102', currentUser.rules)">
+      <button class="btn btn-primary" @click="openForm">
         <i class="fa  fa-pencil-square-o"></i>&nbsp;新建类型
       </button>
     </h3>
@@ -20,12 +20,12 @@
           <th>控制板类型</th>
           <th>操作
             <button class="btn btn-xs btn-default pull-right"
-                    ng-click="refreshData(true)">刷新
+                    @click="refreshData(true)">刷新
             </button>
           </th>
         </tr>
 
-        <tr ng-repeat="machineType in machineTypes">
+        <tr v-for="machineType in machineTypes">
           <td>
             <input type="checkbox">
           </td>
@@ -55,17 +55,13 @@
             <span ng-switch-when="NEG">新易购</span>
             <span ng-switch-when="JY">金雨</span>
             <span ng-switch-when="YC">易触</span>
+            <span ng-switch-when="CHZH">称重</span>
             <span ng-switch-default>易购</span>
           </td>
           <td>
-            <button class="btn btn-sm btn-primary"
-                    data-ng-click="openForm(machineType)"
-                    ng-if="$root.haveAuth('010103', currentUser.rules)">修改
+            <button class="btn btn-sm btn-primary" @click="openForm(machineType)">修改
             </button>
-            <button class="btn btn-sm btn-danger"
-                    data-ng-click="delete(machineType)"
-                    confirm="确定删除机器类型：{{machineType.typeName}}?" confirm-settings="{size: 'sm'}"
-                    ng-if="$root.haveAuth('010104', currentUser.rules)"><i class="fa fa-trash-o"></i>&nbsp;删除
+            <button class="btn btn-sm btn-danger" @click="delete(machineType)" confirm="确定删除机器类型：{{machineType.typeName}}?" confirm-settings="{size: 'sm'}"><i class="fa fa-trash-o"></i>&nbsp;删除
             </button>
           </td>
         </tr>
@@ -75,10 +71,23 @@
 </template>
 
 <script>
-
+  export default{
+    name: 'MachineTypeList',
+    data () {
+      return {}
+    },
+    components: {},
+    watch: {},
+    computed: {},
+    mounted () {
+    },
+    methods: {
+      openForm (type) {
+        console.log('openForm')
+      }
+    }
+  }
 </script>
 
-
-<style lang="scss" scoped>
-
+<style lang="scss">
 </style>
