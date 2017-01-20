@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <h3>
         货道模板&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" @click="openForm()">
+        <button class="btn btn-primary" @click="createForm">
           <i class="fa  fa-pencil-square-o"></i>&nbsp;新建模板
         </button>
       </h3>
@@ -37,9 +37,11 @@
               {{machineAisleTemplateDesc.applySceneDesc}}
             </td>
             <td>
-              <button class="btn btn-sm btn-primary" @click="setAisle(machineAisleTemplateDesc)">设置货道
-              </button>
-              <button class="btn btn-sm btn-primary" @click="openForm(machineAisleTemplateDesc)">修改
+              <router-link :to="{ path: '/machine/aisleList', query: { id: machineAisleTemplateDesc.goodsAisleTemplateId }}">
+                <button class="btn btn-sm btn-primary">设置货道
+                </button>
+              </router-link>
+              <button class="btn btn-sm btn-primary" @click="updateForm(machineAisleTemplateDesc)">修改
               </button>
             </td>
           </tr>
@@ -47,14 +49,15 @@
         </table>
       </div>
     </div>
-    <!--<MachineAisleTemplateForm v-on:dismiss="formDismiss" v-if="form"></MachineAisleTemplateForm>-->
+    <MachineAisleTemplateForm :formTitle="formTitle" v-on:dismiss="formDismiss" v-if="form"></MachineAisleTemplateForm>
   </div>
 </template>
 
 
 <script>
   import axios from 'axios'
-  // import MachineAisleTemplateForm from './MachineAisleTemplateForm'
+  import MachineAisleTemplateForm from './MachineAisleTemplateForm'
+  // import MachineAisleList from './MachineAisleList'
   export default{
     name: 'MachineTypeList',
     data () {
@@ -64,7 +67,8 @@
       }
     },
     components: {
-      // MachineAisleTemplateForm
+      MachineAisleTemplateForm
+      // MachineAisleList
     },
     watch: {},
     computed: {},
@@ -77,7 +81,16 @@
       })
     },
     methods: {
-      openForm (desc) {
+      createForm () {
+        this.formTitle = '新建货道模板'
+        if (this.form === false) {
+          this.form = true
+        } else {
+          this.form = false
+        }
+      },
+      updateForm (machineAisleTemplateDesc) {
+        this.formTitle = '修改货道模板'
         if (this.form === false) {
           this.form = true
         } else {
@@ -87,11 +100,6 @@
       formDismiss () {
         this.form = false
       },
-      delete (desc) {
-        // if (confirm('确定删除机器类型：' + this.machineType.typeName + '?')) {
-        //   console.log('删掉啦哈哈哈')
-        // }
-      },
       refreshData (e) {
         let _this = this
         axios.get('http://localhost:9999/aisleDesc').then(function (res) {
@@ -100,6 +108,9 @@
           }
         })
       }
+      // setAisle (machineAisleTemplateDesc) {
+      //   this.$router.push('/machine/sysPay')
+      // }
     }
   }
 </script>

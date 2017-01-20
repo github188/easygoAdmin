@@ -10,6 +10,7 @@ import Login from '../containers/Login.vue'
 import Machine from '../containers/machine/Index.vue'
 import MachineType from '../containers/machine/Type.vue'
 import MachineAisle from '../containers/machine/Aisle.vue'
+import MachineAisleList from '../containers/machine/AisleList'
 import MachineList from '../containers/machine/List.vue'
 import MachineMap from '../containers/machine/Map.vue'
 import MachineCopy from '../containers/machine/Copy.vue'
@@ -59,6 +60,8 @@ const routes = [
         children: [
           {path: 'type', component: MachineType},
           {path: 'aisle', component: MachineAisle},
+          {path: 'aisleList', component: MachineAisleList},
+
           {path: 'list', component: MachineList},
           {path: 'map', component: MachineMap},
           {path: 'copy', component: MachineCopy}

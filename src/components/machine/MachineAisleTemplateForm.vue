@@ -1,59 +1,70 @@
 <template>
-  <div class="machine-type-form-bc">
-    <form class="form-horizontal" ng-submit="save()" name="aisleTempalteDescForm" novalidate>
-      <div class="modal-body">
-        <fieldset>
-          <legend>{{formTitle}}</legend>
-          <div class="form-group">
-            <label class="col-md-2 control-label">模板名称</label>
-            <div class="col-md-4">
-              <input type="text" v-model="aisleTemplateDesc.templateName" required placeholder="输入唯一的模板名称" class="form-control">
+  <div class="modal fade ng-isolate-scope browse-origin-modal in" style="display: block">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="machine-type-form-bc">
+          <form class="form-horizontal" @submit.prevent autocomplete="off" name="aisleTempalteDescForm" novalidate>
+            <div class="modal-body">
+              <fieldset>
+                <legend>{{formTitle}}</legend>
+                <div class="form-group">
+                  <label class="col-md-2 control-label">模板名称</label>
+                  <div class="col-md-4">
+                    <input type="text" v-model="aisleTemplateDesc.templateName" required placeholder="输入唯一的模板名称"
+                           class="form-control">
+                  </div>
+                  <label class="col-md-2 control-label">机器类型</label>
+                  <div class="col-md-4">
+                    <select v-model="aisleTemplateDesc.machineTypeInfo.machineTypeId" class="form-control" required
+                            v-if="formTitle === '新建货道模板'">
+                      <option :value="machineType.machineTypeId" v-for="machineType in machineTypes">
+                        {{machineType.typeName}}
+                      </option>
+                    </select>
+                    <select v-model="aisleTemplateDesc.machineTypeInfo.machineTypeId" class="form-control" required
+                            v-if="formTitle === '修改货道模板'" disabled="true">
+                      <option :value="machineType.machineTypeId" v-for="machineType in machineTypes">
+                        {{machineType.typeName}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-2 control-label">应用场景</label>
+                  <div class="col-md-10">
+                    <input type="text" v-model="aisleTemplateDesc.applySceneDesc" required placeholder="输入应用场景描述"
+                           class="form-control">
+                  </div>
+                </div>
+                <div class="alert alert-danger" v-show="invalidMessage.name">
+                  <i class="fa fa-warning"></i>{{invalidMessage.name}}
+                </div>
+              </fieldset>
             </div>
-            <label class="col-md-2 control-label">机器类型</label>
-            <div class="col-md-4">
-              <select ng-model="aisleTemplateDesc.machineTypeInfo.machineTypeId" class="form-control" required ng-if="!isEdit">
-                <option value="{{machineType.machineTypeId}}" ng-repeat="machineType in machineTypeList"
-                        ng-selected="{{machineType.machineTypeId == aisleTemplateDesc.machineTypeInfo.machineTypeId}}">{{machineType.typeName}}</option>
-              </select>
-              <select ng-model="aisleTemplateDesc.machineTypeInfo.machineTypeId" class="form-control" required ng-if="isEdit" ng-disabled="true">
-                <option value="{{machineType.machineTypeId}}" ng-repeat="machineType in machineTypeList"
-                        ng-selected="{{machineType.machineTypeId == aisleTemplateDesc.machineTypeInfo.machineTypeId}}">{{machineType.typeName}}</option>
-              </select>
+            <div class="modal-footer">
+              <a class="btn btn-default" @click="dismiss">关闭</a>
+              <input type="submit" class="btn btn-submit-bc" @click="save" :disabled='savebtnDisabled' value="保存">
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-2 control-label">应用场景</label>
-            <div class="col-md-10">
-              <input type="text" v-model="aisleTemplateDesc.applySceneDesc" required placeholder="输入应用场景描述" class="form-control">
-            </div>
-          </div>
-          <div class="alert alert-danger" v-show="invalidMessage.name">
-            <i class="fa fa-warning"></i>{{invalidMessage.name}}
-          </div>
-        </fieldset>
+          </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <a href="" class="btn btn-default" @click="dismiss">关闭</a>
-        <input type="submit" class="btn btn-submit-bc" @click="save" :disabled='savebtnDisabled' value="保存">
-      </div>
-    </form>
+    </div>
   </div>
 </template>
 <script>
+  import axios from 'axios'
   export default{
-    name: 'MachineTypeFrom',
+    name: 'MachineAisleTemplateFrom',
+    props: ['formTitle'],
     data () {
       return {
-        formTitle: '新增设备类型',
-        machineType: {
-          typeName: '',
-          screenSize: '',
-          aisleRowNumber: '',
-          aisleColumnNumber: '',
-          enableTouch: '',
-          haveSelectGoodsButton: '',
-          haveNumberKeyboard: '',
-          controlBoardType: ''
+        machineTypes: {},
+        aisleTemplateDesc: {
+          templateName: '',
+          machineTypeInfo: {
+            machineTypeId: ''
+          },
+          applySceneDesc: ''
         },
         invalidMessage: {},
         aisleTempalteDescForm: {},
@@ -63,17 +74,40 @@
     components: {},
     watch: {
       // 监听用户输入
-      'machineType.typeName' (val) {
+      'aisleTemplateDesc.templateName' (val) {
         if (val === '') {
-          this.machineTypeForm.typeName = true // 禁用
+          this.aisleTempalteDescForm.templateName = true // 禁用
         } else {
-          this.machineTypeForm.typeName = false // 开启
+          this.aisleTempalteDescForm.templateName = false // 开启
+        }
+        // 监听完成使用函数验证是否开启save禁用
+        this.savebtn()
+      },
+      'aisleTemplateDesc.machineTypeInfo.machineTypeId' (val) {
+        if (val === '') {
+          this.aisleTempalteDescForm.machineTypeId = true // 禁用
+        } else {
+          this.aisleTempalteDescForm.machineTypeId = false // 开启
+        }
+        this.savebtn()
+      },
+      'aisleTemplateDesc.applySceneDesc' (val) {
+        if (val === '') {
+          this.aisleTempalteDescForm.applySceneDesc = true // 禁用
+        } else {
+          this.aisleTempalteDescForm.applySceneDesc = false // 开启
         }
         this.savebtn()
       }
     },
     computed: {},
     mounted () {
+      let _this = this
+      axios.get('http://localhost:9999/machineType').then(function (res) {
+        if (res.data) {
+          _this.machineTypes = res.data
+        }
+      })
     },
     methods: {
       // 关闭
@@ -101,14 +135,9 @@
         }
       },
       savebtn () {
-        if (this.machineTypeForm.typeName === false &&
-          this.machineTypeForm.screenSize === false &&
-          this.machineTypeForm.aisleRowNumber === false &&
-          this.machineTypeForm.aisleColumnNumber === false &&
-          this.machineTypeForm.enableTouch === false &&
-          this.machineTypeForm.haveSelectGoodsButton === false &&
-          this.machineTypeForm.haveNumberKeyboard === false &&
-          this.machineTypeForm.controlBoardType === false) {
+        if (this.aisleTempalteDescForm.templateName === false &&
+          this.aisleTempalteDescForm.machineTypeId === false &&
+          this.aisleTempalteDescForm.applySceneDesc === false) {
           this.savebtnDisabled = false   // 通过
         } else {
           this.savebtnDisabled = true
