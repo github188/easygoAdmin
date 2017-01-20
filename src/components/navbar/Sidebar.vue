@@ -332,6 +332,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .main-sidebar{
+    border-right: 1px solid #d2d6de;
+  }
   a {
     cursor: pointer;
     user-select:none;

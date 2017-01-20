@@ -1,10 +1,9 @@
 <template>
-  <div>
-    我是machine aisle
-  </div>
+  <MachineAisleTemplateList></MachineAisleTemplateList>
 </template>
 
 <script>
+  import MachineAisleTemplateList from '../../components/machine/MachineAisleTemplateList'
   export default{
     name: 'MachineAisle',
     data () {
@@ -12,7 +11,9 @@
         msg: 'hello vue'
       }
     },
-    components: {}
+    components: {
+      MachineAisleTemplateList
+    }
   }
 </script>
 
