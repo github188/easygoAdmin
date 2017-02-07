@@ -37,10 +37,9 @@
               {{machineAisleTemplateDesc.applySceneDesc}}
             </td>
             <td>
-              <router-link :to="{ path: '/machine/aisleList', query: { id: machineAisleTemplateDesc.goodsAisleTemplateId }}">
-                <button class="btn btn-sm btn-primary">设置货道
-                </button>
-              </router-link>
+              <button class="btn btn-sm btn-primary"
+                      @click="machineAisle(machineAisleTemplateDesc.goodsAisleTemplateId)">设置货道
+              </button>
               <button class="btn btn-sm btn-primary" @click="updateForm(machineAisleTemplateDesc)">修改
               </button>
             </td>
@@ -57,9 +56,8 @@
 <script>
   import axios from 'axios'
   import MachineAisleTemplateForm from './MachineAisleTemplateForm'
-  // import MachineAisleList from './MachineAisleList'
   export default{
-    name: 'MachineTypeList',
+    name: 'MachineAisleTemplateList',
     data () {
       return {
         form: false,
@@ -68,12 +66,12 @@
     },
     components: {
       MachineAisleTemplateForm
-      // MachineAisleList
     },
     watch: {},
     computed: {},
     mounted () {
       let _this = this
+      _this.$store.commit('aisleData', null)  // 组件初始化时候清除vuex中全局变量aisleData
       axios.get('http://localhost:9999/aisleDesc').then(function (res) {
         if (res.data) {
           _this.machineAisleTemplateDescs = res.data
@@ -107,6 +105,10 @@
             _this.machineAisleTemplateDescs = res.data
           }
         })
+      },
+      machineAisle (id) {
+        console.log(id)
+        this.$router.push('/machine/aisleList?id=' + id)
       }
       // setAisle (machineAisleTemplateDesc) {
       //   this.$router.push('/machine/sysPay')

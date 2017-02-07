@@ -1,10 +1,11 @@
 <template>
   <div>
-    我是machine list
+    <MachineMachineList></MachineMachineList>
   </div>
 </template>
 
 <script>
+  import MachineMachineList from '../../components/machine/MachineMachineList'
   export default{
     name: 'MachineList',
     data () {
@@ -12,7 +13,9 @@
         msg: 'hello vue'
       }
     },
-    components: {}
+    components: {
+      MachineMachineList
+    }
   }
 </script>
 

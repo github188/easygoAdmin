@@ -117,23 +117,6 @@
       save () {
         console.log(this.machineType.typeName)
       },
-      // 失去焦点验证正整数正则 帮助用户修正输入
-      screenSizeInt () {
-        this.machineType.screenSize = this.int(this.machineType.screenSize)
-      },
-      aisleRowNumberInt () {
-        this.machineType.aisleRowNumber = this.int(this.machineType.aisleRowNumber)
-      },
-      aisleColumnNumberInt () {
-        this.machineType.aisleColumnNumber = this.int(this.machineType.aisleColumnNumber)
-      },
-      int (num) {
-        let re = /^[1-9]\d*/
-        if (re.test(num)) {
-          let arr = re.exec(num)
-          return arr[0]
-        }
-      },
       savebtn () {
         if (this.aisleTempalteDescForm.templateName === false &&
           this.aisleTempalteDescForm.machineTypeId === false &&

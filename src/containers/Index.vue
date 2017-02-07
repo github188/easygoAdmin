@@ -2,7 +2,7 @@
   <div id="container">
     <NavbarMain></NavbarMain>
     <AdminAlert></AdminAlert>
-    <div class="content-wrapper ng-scope">
+    <div class="content-wrapper ng-scope" :style="{minHeitht: contentWarpperMinHeight}">
       <section class="content">
         <router-view></router-view>
       </section>
@@ -23,15 +23,15 @@
       }
     },
     computed: {
-      // contentWarpperHeight () {
-      //   if (window.screen < 768) {
-      //     let height = window.screen.height * 0.82
-      //     return height
-      //   } else {
-      //     let height = window.screen.height * 1.46
-      //     return height
-      //   }
-      // },
+      contentWarpperMinHeight () {
+        if (window.screen < 768) {
+          let minHeight = window.screen.height * 0.82
+          return minHeight
+        } else {
+          let minHeight = window.screen.height * 1.46
+          return minHeight
+        }
+      },
       year () {
         return this.GetDate(0)
       }
@@ -56,9 +56,8 @@
 <style lang="scss" scoped>
   #container {
     height: 100%;
+    overflow: auto;
     .content-wrapper {
-      height:100%;
-      min-height: 600px;
       border-left: 0;
     }
     footer{

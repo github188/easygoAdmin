@@ -1,14 +1,13 @@
 <template>
   <div class="row">
-    <div class="col-md-12" ng-if="$root.haveAuth('010301', currentUser.rules)">
+    <div class="col-md-12">
       <!-- Control Sidebar -->
-      <aside ng-class="{'control-sidebar-open': openedOrg}" class="control-sidebar no-padding control-sidebar-light">
+      <aside :class="['control-sidebar','no-padding','control-sidebar-light', aside ? 'control-sidebar-open' : '']">
         <div class="box box-widget no-border no-shadow">
           <div class="box-header">
             <h3 class="box-title">组织列表</h3>
-
             <div class="box-tools pull-right">
-              <button type="button" ng-click="closeOrg()" class="btn btn-box-tool"><i class="fa fa-times"></i></button>
+              <button type="button" @click="closeOrg" class="btn btn-box-tool"><i class="fa fa-times"></i></button>
             </div>
             <!-- /.box-tools -->
           </div>
@@ -32,28 +31,29 @@
         <div class="box-body table-responsive">
           <form class="form-inline" novalidate>
             <div class="input-group">
-              <input type="text" disabled value="{{currentOrg}}" class="form-control" placeholder="组织名称">
+              <input type="text" disabled :value="currentOrg" class="form-control" placeholder="组织名称">
               <span class="input-group-btn">
-                            <button ng-click="openOrg()" class="form-control btn btn-default" type="button"><i class="fa fa-sitemap"></i>选择组织</button>
+                            <button @click="openOrg" class="form-control btn btn-default" type="button"><i
+                              class="fa fa-sitemap"></i>选择组织</button>
                           </span>
             </div>
             <!-- /input-group -->
             <div class="form-group" style="margin: 0 10px;">
               <label style="margin-right: 10px" class="control-label">机器编号:</label>
-              <input style="max-width: 120px;" type="text" ng-model="searchMachine.machineCode" class="form-control"
+              <input style="max-width: 120px;" type="text" v-model="searchMachine.machineCode" class="form-control"
                      placeholder="查询机器编号"/>
             </div>
             <div class="form-group" style="margin: 0 10px;">
               <label style="margin-right: 10px" class="control-label">在线状态:</label>
 
-              <select ng-model="searchMachine.online" style="min-width: 80px" class="form-control">
+              <select v-model="searchMachine.online" style="min-width: 80px" class="form-control">
                 <option value="">全部</option>
                 <option value="true">在线</option>
                 <option value="false">离线</option>
               </select>
             </div>
             <div class="form-group" style="margin: 10px;">
-              <button type="button" ng-click="refreshData()" class="form-control btn btn-success">
+              <button type="button" @click="refreshData" class="form-control btn btn-success">
                 <i class="fa fa-search"></i> 查询
               </button>
             </div>
@@ -68,6 +68,7 @@
           </div>
           <div class="box-body table-responsive no-padding" style="overflow-x: visible">
             <table class="table table-striped table-hover">
+              <tbody>
               <tr>
                 <th>机器编号</th>
                 <th>机器名称</th>
@@ -76,111 +77,87 @@
                 <th>注册时间</th>
                 <th style="text-align: center">
                   <button class="btn btn-xs btn-warning text-center"
-                          data-ng-click="bindingTemplate()"
-                          tooltip="绑定模板" tooltip-trigger tooltip-placement="top"
-                          ng-if="$root.haveAuth('010305', currentUser.rules)">绑定模板
+                          @click="bindingTemplate"
+                          tooltip="绑定模板" tooltip-trigger tooltip-placement="top">绑定模板
                   </button>
                   <button class="btn btn-xs btn-success text-center"
-                          data-ng-click="openPushAdvertise()"
-                          tooltip="推送广告" tooltip-trigger tooltip-placement="top"
-                          ng-if="$root.haveAuth('010311', currentUser.rules)">推送广告
+                          @click="openPushAdvertise"
+                          tooltip="推送广告" tooltip-trigger tooltip-placement="top">推送广告
                   </button>
                   <button class="btn btn-xs btn-success text-center"
-                          data-ng-click="openPushVersion()"
-                          tooltip="推送版本" tooltip-trigger tooltip-placement="top"
-                          ng-if="$root.haveAuth('010310', currentUser.rules)">推送版本
+                          @click="openPushVersion"
+                          tooltip="推送版本" tooltip-trigger tooltip-placement="top">推送版本
                   </button>
+
                 </th>
               </tr>
-              <tr ng-repeat="machine in machineInfos">
-                <td><input type="checkbox" ng-model="machine.selected">&nbsp;&nbsp;{{machine.machineCode}}
+              <tr v-for="machine in machineInfos">
+                <td><input type="checkbox" v-model="machine.selected">&nbsp;&nbsp;{{machine.machineCode}}
                 </td>
                 <td>{{machine.machineName}}</td>
                 <td>{{machine.organizationName}}</td>
                 <td>{{machine.payNames}}</td>
-                <td>{{machine.gmtCreated |
-                  date : 'yyyy-MM-dd HH:mm'}}
+                <td>{{dateInit(machine.gmtCreated)}}
                 </td>
                 <td style="text-align: center">
-                  <button ng-if="machine.machineTypeInfo && $root.haveAuth('010306', currentUser.rules)"
-                          data-ng-click="gotoMachineAisleGoods(machine.machineId)"
+                  <button @click="gotoMachineAisleGoods(machine.machineId)"
                           class="btn btn-xs btn-primary">查看货道
                   </button>
                   <div class="btn-group hidden-md hidden-lg">
-                    <a class="btn" href="" data-ng-click="openForm(machine)" ng-if="$root.haveAuth('010302', currentUser.rules)">
+                    <a class="btn" @click="openForm(machine)">
                       <i class="fa fa-gear"></i>
                     </a>
-                    <a class="btn" href="" data-ng-click="openOrgForm(machine)" ng-if="$root.haveAuth('010308', currentUser.rules)">
+                    <a class="btn" @click="openOrgForm(machine)">
                       <i class="fa fa-sitemap"></i>
                     </a>
-                    <a class="btn" href="" ng-if="$root.haveAuth('010307', currentUser.rules)" data-ng-click="reboot(machine.machineId)"
-                       confirm="确定重启机器：{{machine.machineCode}}?"
-                       confirm-settings="{size: 'sm'}"
-                       confirm-title="确认">
+                    <a class="btn" @click="reboot(machine.machineId)">
                       <i class="fa fa-refresh"></i>
                     </a>
-                    <a class="btn" href="" ng-if="$root.haveAuth('010304', currentUser.rules)" data-ng-click="delete(machine)"
-                       confirm="确定删除设备：{{machine.machineCode}}?删除后不能恢复。"
-                       confirm-settings="{size: 'sm'}"
-                       confirm-title="确认">
+                    <a class="btn" @click="delete(machine)">
                       <i class="fa fa-trash-o"></i>
                     </a>
                   </div>
-                  <div ng-if="$root.haveAuth('010303', currentUser.rules)||$root.haveAuth('010302', currentUser.rules)||$root.haveAuth('010308', currentUser.rules)||$root.haveAuth('010307', currentUser.rules)||$root.haveAuth('010304', currentUser.rules)"
-                       class="btn-group hidden-sm hidden-xs" dropdown is-open="status.isopen">
+                  <div class="btn-group hidden-sm hidden-xs" dropdown is-open="status.isopen">
                     <button type="button" class="btn btn-xs btn-primary dropdown-toggle"
                             dropdown-toggle>&nbsp;&nbsp;操&nbsp;&nbsp;作&nbsp;&nbsp;<span
                       class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                      <li ng-if="$root.haveAuth('010303', currentUser.rules)">
-                        <a href="" ng-click="openAddressForm(machine.machineId)">
+                      <li>
+                        <a @click="openAddressForm(machine.machineId)">
                           机器地址
                         </a>
                       </li>
-                      <li ng-if="$root.haveAuth('010302', currentUser.rules)">
-                        <a href="" data-ng-click="openForm(machine)">修改机器</a>
+                      <li>
+                        <a @click="openForm(machine)">修改机器</a>
                       </li>
-                      <li ng-if="$root.haveAuth('010308', currentUser.rules)">
-                        <a href="" data-ng-click="openOrgForm(machine)">授权组织</a>
+                      <li>
+                        <a @click="openOrgForm(machine)">授权组织</a>
                       </li>
                       <li role="separator" class="divider"></li>
-                      <li ng-if="$root.haveAuth('010307', currentUser.rules)">
-                        <a href="" data-ng-click="reboot(machine.machineId)"
-                           confirm="确定重启机器：{{machine.machineCode}}?"
-                           confirm-settings="{size: 'md'}">
+                      <li>
+                        <a @click="reboot(machine.machineId)">
                           重启机器
                         </a>
                       </li>
-                      <li ng-if="$root.haveAuth('010304', currentUser.rules)">
-                        <a href="" data-ng-click="delete(machine)"
-                           confirm="确定删除设备：{{machine.machineCode}}?删除后不能恢复。"
-                           confirm-settings="{size: 'md'}"
-                           confirm-title="确认">
+                      <li>
+                        <a @click="delete(machine)">
                           删除机器
                         </a>
                       </li>
                     </ul>
                   </div>
-                  <span tooltip="{{machine.offlineOrOnlineTime | date : 'yyyy-MM-dd HH:mm'}}" tooltip-trigger
-                        tooltip-placement="top" ng-hide="machine.online" class="label label-default">离线</span>
-                  <span tooltip="{{machine.offlineOrOnlineTime | date : 'yyyy-MM-dd HH:mm'}}" tooltip-trigger
-                        tooltip-placement="top" ng-show="machine.online" class="label label-success">在线</span>
+                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-default"
+                        v-show=''>离线</span>
+                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-success"
+                  >在线</span>
                 </td>
               </tr>
+              </tbody>
             </table>
           </div>
-          <div class="row text-center">
-            <pagination class="pagination-sm" boundary-links="true"
-                        max-size="6"
-                        items-per-page="searchMachine.pageSize"
-                        total-items="pageMachine.totalElements"
-                        ng-model="searchMachine.pageNumber"
-                        ng-change="pageChanged(searchMachine.pageNumber)"
-                        previous-text="&lt;" next-text="&gt;"
-                        first-text="&lt;&lt;" last-text="&gt;&gt;">
-            </pagination>
-          </div>
+          <!--以下是分页-->
+          <boot-page :pageTotal='pageTotal' :len='len' :page-len="pageLen"></boot-page>
         </div>
       </div>
     </div>
@@ -188,10 +165,109 @@
 </template>
 
 <script>
-
+  import axios from 'axios'
+  import bootPage from './BootPage'
+  export default{
+    name: 'MachineMachineList',
+    data () {
+      return {
+        node: {},
+        currentOrg: '',
+        searchMachine: {},
+        aside: null,
+        pageMachine: {},
+        machineInfos: {},
+        // 以下是分页组件设置
+        page: 1,
+        async: false,
+        len: 10,
+        pageLen: 5, // 可显示的分页数
+        // url: '/bootpage/', // 请求路径
+        param: {}, // 传递参数
+        // 总页数
+        pageTotal: 0,
+        tableList: [] // 分页组件传回的分页后数据
+      }
+    },
+    components: {
+      bootPage
+    },
+    watch: {},
+    computed: {},
+    mounted () {
+      let _this = this
+      axios.post('http://localhost:9999/machine/page',
+        {pageNumber: _this.page, pageSize: _this.len}
+      ).then(function (res) {
+        if (res.data) {
+          _this.machineInfos = res.data.content
+          _this.pageTotal = res.data.totalPages
+        }
+      })
+    },
+    methods: {
+      openOrg () {
+        if (this.aside === true) {
+          this.aside = false
+        } else {
+          this.aside = true
+        }
+      },
+      formpageupdate (page) {
+        console.log('chenggongla' + page)
+        // let _this = this
+        // axios.post('http://localhost:9999/machine/page',
+        //   {pageNumber: _this.pages, pageSize: _this.len}
+        // ).then(function (res) {
+        //   if (res.data) {
+        //     _this.machineInfos = res.data.content
+        //   }
+        // })
+      },
+      closeOrg () {
+        this.aside = false
+      },
+      refreshData () {
+        console.log('hehe')
+      },
+      bindingTemplate () {
+        console.log('绑定模板')
+      },
+      openPushAdvertise () {
+        console.log('推送广告')
+      },
+      openPushVersion () {
+        console.log('推送版本')
+      },
+      // 时间格式化
+      dateInit (data) {
+        let date = new Date(data)
+        let Y = date.getFullYear() + '-'
+        let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+        let D = date.getDate() + ' '
+        let h = date.getHours() + ':'
+        let m = date.getMinutes()
+        return (Y + M + D + h + m)
+      }
+    }
+  }
 </script>
 
+<style lang="scss">
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+    height: 100%;
+  }
 
-<style lang="scss" scoped>
+  .slide-fade-leave-active {
+    transition: all .1s ease;
+  }
 
+  .slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active for <2.1.8 */
+  {
+    transform: translateY(0px);
+    opacity: 0;
+    height: 0;
+  }
 </style>

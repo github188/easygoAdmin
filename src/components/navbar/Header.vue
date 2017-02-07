@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <!-- Logo -->
-    <a href="" @click="gotoMachineList" class="logo">
+    <a @click="gotoMachineList" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
                 <img src="/static/images/logo.png" class="navbar-header-logo">

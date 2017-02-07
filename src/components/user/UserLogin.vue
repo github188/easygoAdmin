@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrap login-box">
     <div class="login-logo">
-      <a href="#"><b>前海易购</b></a>
+      <a><b>前海易购</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

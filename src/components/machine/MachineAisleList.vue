@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <h3>
-        货道模板<span v-show="machineAisleTemplateDesc.templateName">({{machineAisleTemplateDesc.templateName}})</span>--->货道设置
+        货道模板<span v-show="machineAisleTemplateDesc.templateName">
+        ({{machineAisleTemplateDesc.templateName}})</span>--->货道设置
         <button class="btn btn-default pull-right" @click="cancel">返回</button>
       </h3>
     </div>
@@ -24,99 +25,100 @@
               </button>
             </th>
           </tr>
-          <!--<tr ng-repeat="machineAisleTemplate in machineAisleTemplates">-->
-          <!--<td>-->
-          <!--{{$index+1}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--{{machineAisleTemplate.aisleName}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--{{machineAisleTemplate.goodsSkuInfo.skuPackageType}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--{{machineAisleTemplate.goodsSkuInfo.skuSubject}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--{{machineAisleTemplate.goodsSkuInfo.skuSize}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--{{machineAisleTemplate.aisleGoodsPrice}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--{{machineAisleTemplate.defaultGoodsStock}}-->
-          <!--</td>-->
-          <!--<td>-->
-          <!--<button class="btn btn-sm btn-primary"-->
-          <!--@click="openFormAisle(machineAisleTemplate)">修改-->
-          <!--</button>-->
-          <!--</td>-->
-          <!--</tr>-->
+          <tr v-for="(machineAisleTemplate, index) in machineAisleTemplates">
+            <td>
+              {{index+1}}
+            </td>
+            <td>
+              {{machineAisleTemplate.aisleName}}
+            </td>
+            <td>
+              {{machineAisleTemplate.goodsSkuInfo.skuPackageType}}
+            </td>
+            <td>
+              {{machineAisleTemplate.goodsSkuInfo.skuSubject}}
+            </td>
+            <td>
+              {{machineAisleTemplate.goodsSkuInfo.skuSize}}
+            </td>
+            <td>
+              {{machineAisleTemplate.aisleGoodsPrice}}
+            </td>
+            <td>
+              {{machineAisleTemplate.defaultGoodsStock}}
+            </td>
+            <td>
+              <button class="btn btn-sm btn-primary"
+                      @click="openFormAisle(machineAisleTemplate)">修改
+              </button>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>
     </div>
+    <MachineAisleForm :allFilterBrand="this.brand" :aisleTemplate="this.aisleTemplate" v-on:dismiss="formDismiss" v-if="form"></MachineAisleForm>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   // import MachineAisleTemplateForm from './MachineAisleTemplateForm'
-  // import MachineAisleList from './MachineAisleList'
+  import MachineAisleForm from './MachineAisleForm'
   export default{
     name: 'MachineAisleList',
-    props: ['id'],
     data () {
       return {
-        // form: false,
-        machineAisleTemplateDesc: {}
+        form: false,
+        machineAisleTemplateDesc: {},
+        machineAisleTemplates: [],
+        brand: [],
+        aisleTemplate: {}
       }
     },
     components: {
       // MachineAisleTemplateForm
-      // MachineAisleList
+      MachineAisleForm
     },
     watch: {},
     computed: {},
     mounted () {
       let _this = this
-      axios.get('http://localhost:9999/aisleDesc' + _this.id).then(function (res) {
+      axios.get('http://localhost:9999/aisleDesc/' + _this.$route.query.id).then(function (res) {
         if (res.data) {
-          // _this.machineAisleTemplateDesc = res.data
-          console.log(res.data)
+          _this.machineAisleTemplateDesc = res.data
         }
       })
-      axios.get('http://localhost:9999' + '/aisle?templateId=' + '7').then(function (res) {
+      axios.get('http://localhost:9999' + '/aisle?templateId=' + _this.$route.query.id).then(function (res) {
         if (res.data) {
-          console.log(res.data)
+          _this.machineAisleTemplates = res.data
         }
       })
     },
     methods: {
-      // createForm () {
-      //   this.formTitle = '新建货道模板'
-      //   if (this.form === false) {
-      //     this.form = true
-      //   } else {
-      //     this.form = false
-      //   }
-      // },
-      // updateForm (machineAisleTemplateDesc) {
-      //   this.formTitle = '修改货道模板'
-      //   if (this.form === false) {
-      //     this.form = true
-      //   } else {
-      //     this.form = false
-      //   }
-      // },
-      // formDismiss () {
-      //   this.form = false
-      // },
+      openFormAisle (machineAisleTemplate) {
+        let _this = this
+        this.aisleTemplate = machineAisleTemplate
+        if (this.form === false) {
+          this.form = true
+          axios.get('http://localhost:9999/goods/brand').then(function (res) {
+            if (res.data) {
+              _this.brand = res.data
+            }
+          })
+        } else {
+          this.form = false
+        }
+      },
+      formDismiss () {
+        this.form = false
+        this.refreshData()
+      },
       refreshData (e) {
-        // let _this = this
-        axios.get('http://localhost:9999' + '/aisle?templateId=' + '7').then(function (res) {
+        let _this = this
+        axios.get('http://localhost:9999' + '/aisle?templateId=' + _this.$route.query.id).then(function (res) {
           if (res.data) {
-            console.log(res.data)
+            _this.machineAisleTemplates = res.data
           }
         })
       },

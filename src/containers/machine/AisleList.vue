@@ -5,10 +5,9 @@
 <script>
   import MachineAisleList from '../../components/machine/MachineAisleList'
   export default{
-    name: 'MachineAisleList',
+    name: 'AisleList',
     data () {
       return {
-        msg: 'hello vue'
       }
     },
     components: {
