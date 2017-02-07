@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4274881f-5209-470f-8e8a-cdd464552484" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/app.js" afterPath="$PROJECT_DIR$/server/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/machine/MachineAisleForm.vue" afterPath="$PROJECT_DIR$/src/components/machine/MachineAisleForm.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/machine/MachineAisleList.vue" afterPath="$PROJECT_DIR$/src/components/machine/MachineAisleList.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateForm.vue" afterPath="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateForm.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/admin/machine.js" afterPath="$PROJECT_DIR$/src/actions/admin/machine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/machine/BootPage.vue" afterPath="$PROJECT_DIR$/src/components/machine/BootPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue" afterPath="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/machine/MachineMachineList.vue" afterPath="$PROJECT_DIR$/src/components/machine/MachineMachineList.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/navbar/Header.vue" afterPath="$PROJECT_DIR$/src/components/navbar/Header.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/user/UserLogin.vue" afterPath="$PROJECT_DIR$/src/components/user/UserLogin.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Index.vue" afterPath="$PROJECT_DIR$/src/containers/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/machine/AisleList.vue" afterPath="$PROJECT_DIR$/src/containers/machine/AisleList.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/machine/List.vue" afterPath="$PROJECT_DIR$/src/containers/machine/List.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mutations/admin/machine.js" afterPath="$PROJECT_DIR$/src/mutations/admin/machine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/index.js" afterPath="$PROJECT_DIR$/src/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/states/admin/machine.js" afterPath="$PROJECT_DIR$/src/states/admin/machine.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -37,176 +25,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="503">
               <caret line="156" column="27" lean-forward="false" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MachineAisleTemplateList.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="97" column="6" lean-forward="true" selection-start-line="97" selection-start-column="6" selection-end-line="99" selection-end-column="8" />
-              <folding>
-                <element signature="e#82#88#0" expanded="true" />
-                <element signature="e#88#94#0" expanded="true" />
-                <element signature="e#94#100#0" expanded="true" />
-                <element signature="e#100#106#0" expanded="true" />
-                <element signature="e#216#222#0" expanded="true" />
-                <marker date="1486369620000" expanded="true" signature="1798:1884" ph="..." />
-                <marker date="1486369620000" expanded="true" signature="1901:3354" ph="{&quot;name&quot;: 'MachineTypeList'...}" />
-                <marker date="1486369620000" expanded="true" signature="1953:2042" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="1968:2036" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2060:2098" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2148:2424" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2321:2417" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2345:2409" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2439:3350" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2461:2621" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2530:2568" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2574:2613" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2667:2827" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2702:2827" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2736:2774" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2780:2819" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2850:2885" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="2909:3122" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="3009:3113" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="3035:3103" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="3148:3238" ph="{...}" />
-                <marker date="1486369620000" expanded="true" signature="3245:3344" ph="//..." />
-                <marker date="1486369620000" expanded="true" signature="3284:3344" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MachineMachineList.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/machine/MachineMachineList.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="215" column="13" lean-forward="false" selection-start-line="215" selection-start-column="13" selection-end-line="215" selection-end-column="13" />
-              <folding>
-                <element signature="e#4315#4321#0" expanded="true" />
-                <element signature="e#4321#4327#0" expanded="true" />
-                <element signature="e#5692#5698#0" expanded="true" />
-                <element signature="e#5698#5704#0" expanded="true" />
-                <element signature="e#5705#5711#0" expanded="true" />
-                <element signature="e#5711#5717#0" expanded="true" />
-                <element signature="e#5718#5724#0" expanded="true" />
-                <element signature="e#5724#5730#0" expanded="true" />
-                <marker date="1486463130000" expanded="true" signature="7343:7364" ph="..." />
-                <marker date="1486463130000" expanded="true" signature="7343:7397" ph="..." />
-                <marker date="1486463130000" expanded="true" signature="7414:9502" ph="{&quot;name&quot;: 'MachineMachineList'...}" />
-                <marker date="1486463130000" expanded="true" signature="7460:7879" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="7475:7873" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="7715:7763" ph="//..." />
-                <marker date="1486463130000" expanded="true" signature="7783:7805" ph="//..." />
-                <marker date="1486463130000" expanded="true" signature="7897:7919" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="7969:8277" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8131:8270" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8155:8262" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8292:9498" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8311:8439" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8346:8386" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8392:8431" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8469:8814" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8521:8806" ph="//..." />
-                <marker date="1486463130000" expanded="true" signature="8694:8805" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8723:8792" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8834:8870" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8893:8930" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="8957:8994" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="9023:9060" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="9087:9124" ph="{...}" />
-                <marker date="1486463130000" expanded="true" signature="9163:9492" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BootPage.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/machine/BootPage.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="125" column="25" lean-forward="true" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="25" />
-              <folding>
-                <marker date="1486463108000" expanded="true" signature="1183:1236" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1183:4201" ph="{&quot;name&quot;: 'MachineMachineListBootpage'...}" />
-                <marker date="1486463108000" expanded="true" signature="1306:1402" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1321:1396" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1418:1947" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1435:1941" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1471:1503" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1509:1933" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1541:1589" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1648:1752" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1794:1923" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1960:2359" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="1981:2353" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2005:2055" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2102:2178" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2214:2345" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2374:4173" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2416:2990" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2515:2586" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2646:2686" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2759:2947" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2805:2849" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="2893:2937" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3026:3447" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3073:3166" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3226:3273" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3346:3439" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3483:3903" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3530:3623" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3683:3730" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3802:3895" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="3940:3998" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="4035:4106" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="4132:4167" ph="{...}" />
-                <marker date="1486463108000" expanded="true" signature="4190:4197" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MachineAisleTemplateForm.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/machine/MachineAisleTemplateForm.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="113" column="6" lean-forward="false" selection-start-line="113" selection-start-column="6" selection-end-line="115" selection-end-column="8" />
-              <folding>
-                <marker date="1486369732000" expanded="true" signature="2671:4680" ph="{&quot;name&quot;: 'MachineTypeFrom'...}" />
-                <marker date="1486369732000" expanded="true" signature="2749:3067" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="2764:3061" ph="{&quot;formTitle&quot;: '新增设备类型'...}" />
-                <marker date="1486369732000" expanded="true" signature="2819:2959" ph="{&quot;templateName&quot;: ''...}" />
-                <marker date="1486369732000" expanded="true" signature="2876:2919" ph="{&quot;machineTypeId&quot;: ''...}" />
-                <marker date="1486369732000" expanded="true" signature="3100:3956" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3163:3407" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3189:3263" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3269:3344" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3471:3685" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3497:3572" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3578:3654" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3734:3950" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3760:3836" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3842:3919" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="3991:4179" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4089:4172" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4113:4164" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4194:4676" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4225:4264" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4280:4336" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4355:4670" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4549:4607" ph="{...}" />
-                <marker date="1486369732000" expanded="true" signature="4613:4662" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -222,7 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;div id=&quot;{{ val }}&quot;&gt;</find>
       <find>machineTypeId</find>
       <find>templateNametemplateName</find>
       <find>货道模板</find>
@@ -252,6 +75,7 @@
       <find>page: 1,</find>
       <find>async</find>
       <find>console.log</find>
+      <find>page</find>
     </findStrings>
     <replaceStrings>
       <replace>/static</replace>
@@ -296,13 +120,9 @@
         <option value="$PROJECT_DIR$/src/containers/machine/Aisle.vue" />
         <option value="$PROJECT_DIR$/src/components/machine/MachineTypeForm.vue" />
         <option value="$PROJECT_DIR$/src/stores/index.js" />
-        <option value="$PROJECT_DIR$/src/actions/admin/machine.js" />
         <option value="$PROJECT_DIR$/src/actions/admin/index.js" />
         <option value="$PROJECT_DIR$/src/routes/index.js" />
         <option value="$PROJECT_DIR$/src/containers/machine/AisleList.vue" />
-        <option value="$PROJECT_DIR$/src/mutations/admin/machine.js" />
-        <option value="$PROJECT_DIR$/src/states/admin/machine.js" />
-        <option value="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue" />
         <option value="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateForm.vue" />
         <option value="$PROJECT_DIR$/src/components/machine/MachineTypeList.vue" />
         <option value="$PROJECT_DIR$/src/components/machine/MachineAisleForm.vue" />
@@ -315,6 +135,10 @@
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/containers/Index.vue" />
         <option value="$PROJECT_DIR$/src/components/machine/BootPage.vue" />
+        <option value="$PROJECT_DIR$/src/actions/admin/machine.js" />
+        <option value="$PROJECT_DIR$/src/states/admin/machine.js" />
+        <option value="$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue" />
+        <option value="$PROJECT_DIR$/src/mutations/admin/machine.js" />
         <option value="$PROJECT_DIR$/src/components/machine/MachineMachineList.vue" />
       </list>
     </option>
@@ -402,7 +226,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="stores" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="states" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mutations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -465,6 +373,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="machine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -582,12 +512,12 @@
       <workItem from="1484528438358" duration="91643000" />
       <workItem from="1484892719402" duration="7392000" />
       <workItem from="1484901072275" duration="2277000" />
-      <workItem from="1486345193603" duration="49271000" />
+      <workItem from="1486345193603" duration="50656000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252790000" />
+    <option name="totallyTimeSpent" value="254175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -793,21 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/admin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/admin/machine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -852,22 +767,6 @@
             <marker date="1484704560000" expanded="true" signature="294:313" ph="{...}" />
             <marker date="1484704560000" expanded="true" signature="331:372" ph="{&quot;NavHeader&quot;: NavHeader...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mutations/admin/machine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -924,14 +823,6 @@
             <marker date="1484882453000" expanded="true" signature="9110:9168" ph="{...}" />
             <marker date="1484882453000" expanded="true" signature="9174:9223" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/admin/machine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,50 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <marker date="1484727472000" expanded="true" signature="157:287" ph="{&quot;name&quot;: 'Login'...}" />
-            <marker date="1484727472000" expanded="true" signature="186:250" ph="{...}" />
-            <marker date="1484727472000" expanded="true" signature="199:246" ph="{&quot;msg&quot;: 'Welcome to Your Vue.js App'...}" />
-            <marker date="1484727472000" expanded="true" signature="266:285" ph="{&quot;UserLogin&quot;: UserLogin...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/UserLogin.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="61" column="31" lean-forward="false" selection-start-line="61" selection-start-column="31" selection-end-line="73" selection-end-column="11" />
-          <folding>
-            <marker date="1486372415000" expanded="false" signature="1208:1248" ph="..." />
-            <marker date="1486372415000" expanded="true" signature="1266:3257" ph="{&quot;name&quot;: 'Login'...}" />
-            <marker date="1486372415000" expanded="true" signature="1299:1394" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1314:1388" ph="{&quot;danger&quot;: ''...}" />
-            <marker date="1486372415000" expanded="true" signature="1411:1542" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1494:1536" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1557:3253" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1579:1648" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1665:3247" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1824:3239" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="1857:2052" ph="{&quot;remember-me&quot;: _this.user.remember...}" />
-            <marker date="1486372415000" expanded="true" signature="2054:2319" ph="{&quot;baseURL&quot;: 'http://localhost:9999'...}" />
-            <marker date="1486372415000" expanded="true" signature="2208:2307" ph="[...]" />
-            <marker date="1486372415000" expanded="true" signature="2225:2306" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="2354:3228" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="2391:3075" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="2470:2777" ph="{&quot;baseURL&quot;: 'http://localhost:9999'...}" />
-            <marker date="1486372415000" expanded="true" signature="2642:2759" ph="[...]" />
-            <marker date="1486372415000" expanded="true" signature="2659:2758" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="2799:3058" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="2833:3040" ph="{...}" />
-            <marker date="1486372415000" expanded="true" signature="3110:3214" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1317,51 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="156" column="27" lean-forward="false" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="97" column="6" lean-forward="true" selection-start-line="97" selection-start-column="6" selection-end-line="99" selection-end-column="8" />
-          <folding>
-            <element signature="e#82#88#0" expanded="true" />
-            <element signature="e#88#94#0" expanded="true" />
-            <element signature="e#94#100#0" expanded="true" />
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#216#222#0" expanded="true" />
-            <marker date="1486369620000" expanded="true" signature="1798:1884" ph="..." />
-            <marker date="1486369620000" expanded="true" signature="1901:3354" ph="{&quot;name&quot;: 'MachineTypeList'...}" />
-            <marker date="1486369620000" expanded="true" signature="1953:2042" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="1968:2036" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2060:2098" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2148:2424" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2321:2417" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2345:2409" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2439:3350" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2461:2621" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2530:2568" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2574:2613" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2667:2827" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2702:2827" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2736:2774" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2780:2819" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2850:2885" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="2909:3122" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="3009:3113" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="3035:3103" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="3148:3238" ph="{...}" />
-            <marker date="1486369620000" expanded="true" signature="3245:3344" ph="//..." />
-            <marker date="1486369620000" expanded="true" signature="3284:3344" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/machine/MachineAisleTemplateForm.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1395,46 +1197,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/machine/BootPage.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/machine/MachineAisleTemplateList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="125" column="25" lean-forward="true" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="25" />
+        <state relative-caret-position="102">
+          <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
           <folding>
-            <marker date="1486463108000" expanded="true" signature="1183:1236" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1183:4201" ph="{&quot;name&quot;: 'MachineMachineListBootpage'...}" />
-            <marker date="1486463108000" expanded="true" signature="1306:1402" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1321:1396" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1418:1947" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1435:1941" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1471:1503" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1509:1933" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1541:1589" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1648:1752" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1794:1923" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1960:2359" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="1981:2353" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2005:2055" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2102:2178" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2214:2345" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2374:4173" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2416:2990" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2515:2586" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2646:2686" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2759:2947" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2805:2849" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="2893:2937" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3026:3447" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3073:3166" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3226:3273" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3346:3439" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3483:3903" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3530:3623" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3683:3730" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3802:3895" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="3940:3998" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="4035:4106" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="4132:4167" ph="{...}" />
-            <marker date="1486463108000" expanded="true" signature="4190:4197" ph="{...}" />
+            <element signature="e#82#88#0" expanded="true" />
+            <element signature="e#88#94#0" expanded="true" />
+            <element signature="e#94#100#0" expanded="true" />
+            <element signature="e#100#106#0" expanded="true" />
+            <element signature="e#216#222#0" expanded="true" />
+            <marker date="1486464269000" expanded="true" signature="1798:1884" ph="..." />
+            <marker date="1486464269000" expanded="true" signature="1901:3360" ph="{&quot;name&quot;: 'MachineTypeList'...}" />
+            <marker date="1486464269000" expanded="true" signature="1953:2042" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="1968:2036" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2060:2098" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2111:2119" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2154:2430" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2327:2423" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2351:2415" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2445:3356" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2467:2627" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2536:2574" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2580:2619" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2673:2833" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2708:2833" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2742:2780" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2786:2825" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2856:2891" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="2915:3128" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="3015:3119" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="3041:3109" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="3154:3244" ph="{...}" />
+            <marker date="1486464269000" expanded="true" signature="3251:3350" ph="//..." />
+            <marker date="1486464269000" expanded="true" signature="3290:3350" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mutations/admin/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/admin/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/admin/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="4" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding>
+            <marker date="1484727472000" expanded="true" signature="157:287" ph="{&quot;name&quot;: 'Login'...}" />
+            <marker date="1484727472000" expanded="true" signature="186:250" ph="{...}" />
+            <marker date="1484727472000" expanded="true" signature="199:246" ph="{&quot;msg&quot;: 'Welcome to Your Vue.js App'...}" />
+            <marker date="1484727472000" expanded="true" signature="266:285" ph="{&quot;UserLogin&quot;: UserLogin...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/UserLogin.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="73" />
+          <folding>
+            <marker date="1486372415000" expanded="false" signature="1208:1248" ph="..." />
+            <marker date="1486372415000" expanded="true" signature="1266:3257" ph="{&quot;name&quot;: 'Login'...}" />
+            <marker date="1486372415000" expanded="true" signature="1299:1394" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1314:1388" ph="{&quot;danger&quot;: ''...}" />
+            <marker date="1486372415000" expanded="true" signature="1411:1542" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1494:1536" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1557:3253" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1579:1648" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1665:3247" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1824:3239" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="1857:2052" ph="{&quot;remember-me&quot;: _this.user.remember...}" />
+            <marker date="1486372415000" expanded="true" signature="2054:2319" ph="{&quot;baseURL&quot;: 'http://localhost:9999'...}" />
+            <marker date="1486372415000" expanded="true" signature="2208:2307" ph="[...]" />
+            <marker date="1486372415000" expanded="true" signature="2225:2306" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="2354:3228" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="2391:3075" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="2470:2777" ph="{&quot;baseURL&quot;: 'http://localhost:9999'...}" />
+            <marker date="1486372415000" expanded="true" signature="2642:2759" ph="[...]" />
+            <marker date="1486372415000" expanded="true" signature="2659:2758" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="2799:3058" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="2833:3040" ph="{...}" />
+            <marker date="1486372415000" expanded="true" signature="3110:3214" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1442,7 +1322,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/machine/MachineMachineList.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
-          <caret line="215" column="13" lean-forward="false" selection-start-line="215" selection-start-column="13" selection-end-line="215" selection-end-column="13" />
+          <caret line="218" column="27" lean-forward="true" selection-start-line="218" selection-start-column="27" selection-end-line="218" selection-end-column="27" />
           <folding>
             <element signature="e#4315#4321#0" expanded="true" />
             <element signature="e#4321#4327#0" expanded="true" />
@@ -1452,32 +1332,87 @@
             <element signature="e#5711#5717#0" expanded="true" />
             <element signature="e#5718#5724#0" expanded="true" />
             <element signature="e#5724#5730#0" expanded="true" />
-            <marker date="1486463130000" expanded="true" signature="7343:7364" ph="..." />
-            <marker date="1486463130000" expanded="true" signature="7343:7397" ph="..." />
-            <marker date="1486463130000" expanded="true" signature="7414:9502" ph="{&quot;name&quot;: 'MachineMachineList'...}" />
-            <marker date="1486463130000" expanded="true" signature="7460:7879" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="7475:7873" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="7715:7763" ph="//..." />
-            <marker date="1486463130000" expanded="true" signature="7783:7805" ph="//..." />
-            <marker date="1486463130000" expanded="true" signature="7897:7919" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="7969:8277" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8131:8270" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8155:8262" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8292:9498" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8311:8439" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8346:8386" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8392:8431" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8469:8814" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8521:8806" ph="//..." />
-            <marker date="1486463130000" expanded="true" signature="8694:8805" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8723:8792" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8834:8870" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8893:8930" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="8957:8994" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="9023:9060" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="9087:9124" ph="{...}" />
-            <marker date="1486463130000" expanded="true" signature="9163:9492" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7343:7364" ph="..." />
+            <marker date="1486464548000" expanded="true" signature="7343:7397" ph="..." />
+            <marker date="1486464548000" expanded="true" signature="7414:9546" ph="{&quot;name&quot;: 'MachineMachineList'...}" />
+            <marker date="1486464548000" expanded="true" signature="7460:7840" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7475:7834" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7676:7724" ph="//..." />
+            <marker date="1486464548000" expanded="true" signature="7744:7766" ph="//..." />
+            <marker date="1486464548000" expanded="true" signature="7858:7880" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7893:7960" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7912:7954" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7976:8069" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="7992:8063" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8086:8394" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8248:8387" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8272:8379" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8409:9542" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8428:8556" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8463:8503" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8509:8548" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8586:8858" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8750:8849" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8776:8839" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8878:8914" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="8937:8974" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="9001:9038" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="9067:9104" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="9131:9168" ph="{...}" />
+            <marker date="1486464548000" expanded="true" signature="9207:9536" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/machine/BootPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="125" column="45" lean-forward="false" selection-start-line="125" selection-start-column="30" selection-end-line="125" selection-end-column="45" />
+          <folding>
+            <marker date="1486463790000" expanded="true" signature="1183:1236" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1183:4229" ph="{&quot;name&quot;: 'MachineMachineListBootpage'...}" />
+            <marker date="1486463790000" expanded="true" signature="1306:1402" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1321:1396" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1418:1947" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1435:1941" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1471:1503" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1509:1933" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1541:1589" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1648:1752" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1794:1923" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1960:2359" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="1981:2353" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2005:2055" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2102:2178" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2214:2345" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2374:4201" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2416:2990" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2515:2586" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2646:2686" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2759:2947" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2805:2849" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="2893:2937" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3026:3447" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3073:3166" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3226:3273" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3346:3439" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3483:3903" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3530:3623" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3683:3730" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3802:3895" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="3940:3998" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="4035:4106" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="4132:4195" ph="{...}" />
+            <marker date="1486463790000" expanded="true" signature="4218:4225" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="156" column="27" lean-forward="false" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

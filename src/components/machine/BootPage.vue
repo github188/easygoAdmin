@@ -123,7 +123,7 @@
         this.page = this.pageTotal
       },
       pageupdate (page) {
-        console.log(page)
+        this.$store.dispatch('machinelistpage', page)
       }
     },
     mounted () {
@@ -149,6 +149,7 @@
     display: inline-block;
     vertical-align: middle;
 }
+
 
 
 

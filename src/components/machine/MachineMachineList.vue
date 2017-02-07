@@ -178,8 +178,6 @@
         pageMachine: {},
         machineInfos: {},
         // 以下是分页组件设置
-        page: 1,
-        async: false,
         len: 10,
         pageLen: 5, // 可显示的分页数
         // url: '/bootpage/', // 请求路径
@@ -192,8 +190,16 @@
     components: {
       bootPage
     },
-    watch: {},
-    computed: {},
+    watch: {
+      page (val) {
+        this.formpageupdate(val)
+      }
+    },
+    computed: {
+      page () {
+        return this.$store.state.adminMachine.machinelistpage
+      }
+    },
     mounted () {
       let _this = this
       axios.post('http://localhost:9999/machine/page',
@@ -214,15 +220,14 @@
         }
       },
       formpageupdate (page) {
-        console.log('chenggongla' + page)
-        // let _this = this
-        // axios.post('http://localhost:9999/machine/page',
-        //   {pageNumber: _this.pages, pageSize: _this.len}
-        // ).then(function (res) {
-        //   if (res.data) {
-        //     _this.machineInfos = res.data.content
-        //   }
-        // })
+        let _this = this
+        axios.post('http://localhost:9999/machine/page',
+          {pageNumber: page, pageSize: _this.len}
+        ).then(function (res) {
+          if (res.data) {
+            _this.machineInfos = res.data.content
+          }
+        })
       },
       closeOrg () {
         this.aside = false

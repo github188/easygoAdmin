@@ -67,7 +67,9 @@
     components: {
       MachineAisleTemplateForm
     },
-    watch: {},
+    watch: {
+
+    },
     computed: {},
     mounted () {
       let _this = this

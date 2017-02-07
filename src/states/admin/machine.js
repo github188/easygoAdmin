@@ -1,6 +1,7 @@
 // states
 const states = {
-  aisleData: null
+  aisleData: null,
+  machinelistpage: 1
 }
 
 export default states
