@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <!-- Control Sidebar -->
-      <aside :class="['control-sidebar','no-padding','control-sidebar-light', aside ? 'control-sidebar-open' : '']">
+      <aside :class="['control-sidebar','no-padding','control-sidebar-light', aside ? 'control-sidebar-open' : '']"
+             :style="{position: 'fixed', top: asideTop + 'px'}">
         <div class="box box-widget no-border no-shadow">
           <div class="box-header">
             <h3 class="box-title">组织列表</h3>
@@ -147,9 +148,9 @@
                       </li>
                     </ul>
                   </div>
-                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-default"
+                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-default online"
                         v-show=''>离线</span>
-                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-success"
+                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-success online"
                   >在线</span>
                 </td>
               </tr>
@@ -166,7 +167,7 @@
 
 <script>
   import axios from 'axios'
-  import bootPage from './BootPage'
+  import bootPage from './MachineListBootPage'
   export default{
     name: 'MachineMachineList',
     data () {
@@ -180,11 +181,8 @@
         // 以下是分页组件设置
         len: 10,
         pageLen: 5, // 可显示的分页数
-        // url: '/bootpage/', // 请求路径
-        param: {}, // 传递参数
         // 总页数
-        pageTotal: 0,
-        tableList: [] // 分页组件传回的分页后数据
+        pageTotal: 0
       }
     },
     components: {
@@ -198,6 +196,15 @@
     computed: {
       page () {
         return this.$store.state.adminMachine.machinelistpage
+      },
+      asideTop () {
+        if (window.screen.width < 768) {
+          const top = 115
+          return top
+        } else {
+          const top = 65
+          return top
+        }
       }
     },
     mounted () {
@@ -259,6 +266,9 @@
 </script>
 
 <style lang="scss">
+  .online{
+    cursor: help;
+  }
   .slide-fade-enter-active {
     transition: all .3s ease;
     height: 100%;

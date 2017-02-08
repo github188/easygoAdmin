@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <MachineMachineList></MachineMachineList>
-  </div>
+  <MachineMachineList></MachineMachineList>
 </template>
 
 <script>

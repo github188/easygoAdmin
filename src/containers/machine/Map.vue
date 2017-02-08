@@ -1,6 +1,8 @@
 <template>
-  <div>
-    我是machine map
+  <div class="row" style="height:730px" id="machine-map">
+    <baidu-map>
+      <map-view class="map-view">
+    </baidu-map>
   </div>
 </template>
 
@@ -9,7 +11,6 @@
     name: 'MachineMap',
     data () {
       return {
-        msg: 'hello vue'
       }
     },
     components: {}
@@ -17,4 +18,8 @@
 </script>
 
 <style lang="scss">
+  .map-view {
+    width: 400px;
+    height: 300px;
+  }
 </style>

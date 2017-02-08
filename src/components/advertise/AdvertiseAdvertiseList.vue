@@ -1,19 +1,18 @@
 <template>
   <div class="row">
-    <div class="col-md-12" ng-if="$root.haveAuth('0301', currentUser.rules)">
+    <div class="col-md-12">
       <div class="box box-widget">
         <div class="box-header">
           <h3 class="box-title">广告列表</h3>
-
           <div class="box-tools">
-            <button class="btn bg-purple" ng-click="openForm()"
-                    ng-if="$root.haveAuth('030102', currentUser.rules)">
+            <button class="btn bg-purple" @click="openForm">
               新建广告
             </button>
           </div>
         </div>
-        <div us-spinner spinner-key="advertiseTable" ng-if="$root.haveAuth('030101', currentUser.rules)" class="box-body table-responsive no-padding">
+        <div us-spinner spinner-key="advertiseTable" class="box-body table-responsive no-padding">
           <table class="table table-striped table-hover ">
+            <tbody>
             <tr>
               <th>ID</th>
               <th>广告名称</th>
@@ -24,11 +23,11 @@
               <th>优先级</th>
               <th>操作
                 <button class="btn btn-xs btn-default"
-                        ng-click="refreshData(true)">刷新
+                        @click="refreshData">刷新
                 </button>
               </th>
             </tr>
-            <tr ng-repeat="advertiseInfo in advertiseInfos">
+            <tr v-for="advertiseInfo in advertiseInfos">
               <td>
                 {{advertiseInfo.advertisementId}}
               </td>
@@ -42,67 +41,125 @@
                 {{advertiseInfo.advertisementShowTime}}
               </td>
               <td>
-                <abbr title="{{advertiseInfo.advertisementDownloadUrl}}">{{advertiseInfo.advertisementDownloadUrl
-                  | characters:30 :true}}</abbr>
+                <p class="url" v-my-tooltip.top-center="advertiseInfo.advertisementDownloadUrl">
+                  {{advertiseInfo.advertisementDownloadUrl}}</p>
               </td>
               <td>
-                {{advertiseInfo.advertisementSize | advertiseSize}}
+                {{advertiseSize(advertiseInfo.advertisementSize)}}
               </td>
               <td>
-                {{advertiseInfo.advertisementLevel | advertiseLevel}}
+                {{advertiseLevel(advertiseInfo.advertisementLevel)}}
               </td>
               <td>
-                <button class="btn bg-purple btn-xs"
-                        data-ng-click="openForm(advertiseInfo)"
-                        ng-if="$root.haveAuth('030103', currentUser.rules)">修改
+                <button class="btn bg-purple btn-xs" @click="openForm(advertiseInfo)">修改
                 </button>
-                <button class="btn btn-danger btn-xs"
-                        data-ng-click="delete(advertiseInfo)"
-                        confirm-title="确认"
-                        confirm-ok="确定"
-                        confirm-cancel="取消"
-                        confirm="确定删除广告：{{advertiseInfo.advertisementName}}?"
-                        confirm-settings="{size: 'sm'}"
-                        ng-if="$root.haveAuth('030104', currentUser.rules)">删除
+                <button class="btn btn-danger btn-xs" @click="delete(advertiseInfo)">删除
                 </button>
               </td>
             </tr>
+            </tbody>
           </table>
         </div>
-        <div class="row text-center">
-          <pagination class="pagination-sm" boundary-links="true"
-                      max-size="6"
-                      items-per-page="itemsPerPage"
-                      total-items="totalSize"
-                      ng-model="currentPage"
-                      ng-change="pageChanged(currentPage)"
-                      previous-text="&lt;" next-text="&gt;"
-                      first-text="&lt;&lt;" last-text="&gt;&gt;"></pagination>
-        </div>
+        <!--以下是分页-->
+        <boot-page :pageTotal='pageTotal' :len='len' :page-len="pageLen"></boot-page>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Login',
-  data () {
-    return {
-      alertDanger: false,
-      danger: null,
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
-  mounted () {
-    let _this = this
-    if (_this.danger) {
-      _this.alertDanger = true
+  import axios from 'axios'
+  import bootPage from './AdvertiseListBootPage'
+  export default {
+    name: 'Login',
+    data () {
+      return {
+        advertiseInfos: {},
+        len: 10, // 每页有多少条数据
+        pageLen: 5, // 最多有多少页显示在下方分页
+        pageTotal: 0  // 总页数
+      }
+    },
+    components: {
+      bootPage
+    },
+    watch: {
+      page (val) {
+        this.formpageupdate(val)
+      }
+    },
+    computed: {
+      page () {
+        return this.$store.state.adminAdvertise.advertiselistpage
+      }
+    },
+    mounted () {
+      let _this = this
+      axios.post('http://localhost:9999/advertise/page',
+        {
+          pageStart: 0,
+          pageSize: _this.len
+        }
+      ).then(function (res) {
+        if (res.data) {
+          _this.advertiseInfos = res.data.content
+          _this.pageTotal = res.data.totalPages
+        }
+      })
+    },
+    methods: {
+      formpageupdate (page) {
+        let _this = this
+        axios.post('http://localhost:9999/advertise/page',
+          {
+            pageStart: page,
+            pageSize: _this.len
+          }
+        ).then(function (res) {
+          if (res.data) {
+            _this.advertiseInfos = res.data.content
+            _this.pageTotal = res.data.totalPages
+          }
+        })
+      },
+      refreshData (e) {
+        // let _this = this
+        // axios.get('http://localhost:9999/machineType').then(function (res) {
+        //   if (res.data) {
+        //     _this.machineTypes = res.data
+        //   }
+        // })
+      },
+      openForm () {
+      },
+      advertiseSize (size) {
+        if (size > 1000000) {
+          return (size / 1000.0 / 1000.0).toFixed(2) + 'MB'
+        }
+        return (size / 1000.0).toFixed(2) + 'KB'
+      },
+      advertiseLevel (level) {
+        if (level === 11) {
+          return '初始广告'
+        } else if (level === 12) {
+          return '默认广告'
+        } else if (level === 13) {
+          return '轮播广告'
+        } else {
+          return level
+        }
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-
+  .url {
+    width: 16em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: help;
+  }
 </style>

@@ -6,6 +6,9 @@ import adminActions from '../actions/admin'
 import adminMachineStates from '../states/admin/machine.js'
 import adminMachineMutations from '../mutations/admin/machine.js'
 import adminMachineActions from '../actions/admin/machine.js'
+import adminAdvertiseStates from '../states/admin/advertise.js'
+import adminAdvertiseMutations from '../mutations/admin/advertise.js'
+import adminAdvertiseActions from '../actions/admin/advertise.js'
 Vue.use(Vuex)
 
 // store中的全局变量，只在store中使用
@@ -20,11 +23,17 @@ const adminMachine = {
   mutations: adminMachineMutations,
   actions: adminMachineActions
 }
+const adminAdvertise = {
+  state: adminAdvertiseStates,
+  mutations: adminAdvertiseMutations,
+  actions: adminAdvertiseActions
+}
 
 const store = new Vuex.Store({
   modules: {
     admin: admin,
-    adminMachine: adminMachine
+    adminMachine: adminMachine,
+    adminAdvertise: adminAdvertise
   }
 })
 

@@ -1,10 +1,9 @@
 <template>
-  <div>
-    我是advertise list
-  </div>
+  <AdvertiseAdvertiseList></AdvertiseAdvertiseList>
 </template>
 
 <script>
+  import AdvertiseAdvertiseList from '../../components/advertise/AdvertiseAdvertiseList'
   export default{
     name: 'AdvertiseList',
     data () {
@@ -12,7 +11,9 @@
         msg: 'hello vue'
       }
     },
-    components: {}
+    components: {
+      AdvertiseAdvertiseList
+    }
   }
 </script>
 
