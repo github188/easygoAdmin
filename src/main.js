@@ -11,7 +11,7 @@ Vue.directive('my-tooltip', VTooltip)
 import BaiduMap from 'vue-baidu-map'
 Vue.use(BaiduMap, {
   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
-  ak: 'YOUR_APP_KEY'
+  ak: 'zYXlh8Vw8MzRKp3H6qRvQeqCYMMSrxby'
 })
 
 // 创建vue实例并渲染到app

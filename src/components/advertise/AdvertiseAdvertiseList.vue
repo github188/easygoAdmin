@@ -5,7 +5,7 @@
         <div class="box-header">
           <h3 class="box-title">广告列表</h3>
           <div class="box-tools">
-            <button class="btn bg-purple" @click="openForm">
+            <button class="btn bg-purple" @click="openForm('新建')">
               新建广告
             </button>
           </div>
@@ -27,7 +27,7 @@
                 </button>
               </th>
             </tr>
-            <tr v-for="advertiseInfo in advertiseInfos">
+            <tr v-for="(advertiseInfo,index) in advertiseInfos">
               <td>
                 {{advertiseInfo.advertisementId}}
               </td>
@@ -51,7 +51,7 @@
                 {{advertiseLevel(advertiseInfo.advertisementLevel)}}
               </td>
               <td>
-                <button class="btn bg-purple btn-xs" @click="openForm(advertiseInfo)">修改
+                <button class="btn bg-purple btn-xs" @click="openForm('修改',index)">修改
                 </button>
                 <button class="btn btn-danger btn-xs" @click="delete(advertiseInfo)">删除
                 </button>
@@ -64,16 +64,20 @@
         <boot-page :pageTotal='pageTotal' :len='len' :page-len="pageLen"></boot-page>
       </div>
     </div>
+    <AdvertiseListForm :formTitle="formTitle" v-on:dismiss="formDismiss" v-if="form"></AdvertiseListForm>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import AdvertiseListForm from './AdvertiseAdvertiseForm'
   import bootPage from './AdvertiseListBootPage'
   export default {
     name: 'Login',
     data () {
       return {
+        form: false,
+        formTitle: '',
         advertiseInfos: {},
         len: 10, // 每页有多少条数据
         pageLen: 5, // 最多有多少页显示在下方分页
@@ -81,7 +85,8 @@
       }
     },
     components: {
-      bootPage
+      bootPage,
+      AdvertiseListForm
     },
     watch: {
       page (val) {
@@ -123,14 +128,38 @@
         })
       },
       refreshData (e) {
-        // let _this = this
-        // axios.get('http://localhost:9999/machineType').then(function (res) {
-        //   if (res.data) {
-        //     _this.machineTypes = res.data
-        //   }
-        // })
+        let _this = this
+        axios.post('http://localhost:9999/advertise/page',
+          {
+            pageStart: 0,
+            pageSize: _this.len
+          }
+        ).then(function (res) {
+          if (res.data) {
+            _this.advertiseInfos = res.data.content
+            _this.pageTotal = res.data.totalPages
+          }
+        })
       },
-      openForm () {
+      formDismiss () {
+        this.form = false
+      },
+      openForm (info, index) {
+        if (info === '新建') {
+          this.formTitle = '新建广告'
+          if (this.form === false) {
+            this.form = true
+          } else {
+            this.form = false
+          }
+        } else if (info === '修改') {
+          this.formTitle = '修改广告'
+          if (this.form === false) {
+            this.form = true
+          } else {
+            this.form = false
+          }
+        }
       },
       advertiseSize (size) {
         if (size > 1000000) {

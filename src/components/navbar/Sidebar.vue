@@ -159,7 +159,42 @@
       }
     },
     mounted () {
-      // ready
+      if (window.localStorage.currentTab) {
+        if (window.localStorage.currentTab === 'machine') {
+          this.show.machine = true
+          this.show.promotion = false
+          this.show.advertise = false
+          this.show.report = false
+          this.show.system = false
+        } else if (window.localStorage.currentTab === 'promotion') {
+          this.show.machine = false
+          this.show.promotion = true
+          this.show.advertise = false
+          this.show.report = false
+          this.show.system = false
+        } else if (window.localStorage.currentTab === 'advertise') {
+          this.show.machine = false
+          this.show.promotion = false
+          this.show.advertise = true
+          this.show.report = false
+          this.show.system = false
+        } else if (window.localStorage.currentTab === 'report') {
+          this.show.machine = false
+          this.show.promotion = false
+          this.show.advertise = false
+          this.show.report = true
+          this.show.system = false
+        } else if (window.localStorage.currentTab === 'system') {
+          this.show.machine = false
+          this.show.promotion = false
+          this.show.advertise = false
+          this.show.report = false
+          this.show.system = true
+        }
+
+        this.currentTab = window.localStorage.currentTab
+        this.currentItem = window.localStorage.currentItem
+      }
     },
     methods: {
       machineBtn () {
@@ -230,74 +265,110 @@
       gotoMachineType () {
         this.currentItem = 'machineType'
         this.$router.push('/machine/type')
+        window.localStorage.currentTab = 'machine'
+        window.localStorage.currentItem = 'machineType'
       },
       gotoAisleTemplate () {
         this.currentItem = 'machineAisle'
         this.$router.push('/machine/aisle')
+        window.localStorage.currentTab = 'machine'
+        window.localStorage.currentItem = 'machineAisle'
       },
       gotoMachineList () {
         this.currentItem = 'machineList'
         this.$router.push('/machine/list')
+        window.localStorage.currentTab = 'machine'
+        window.localStorage.currentItem = 'machineList'
       },
       gotoMachineMap () {
         this.currentItem = 'machineMap'
         this.$router.push('/machine/map')
+        window.localStorage.currentTab = 'machine'
+        window.localStorage.currentItem = 'machineMap'
       },
       gotoMachineCopy () {
         this.$router.push('/machine/copy')
         this.currentItem = 'machineCopy'
+        window.localStorage.currentTab = 'machine'
+        window.localStorage.currentItem = 'machineCopy'
       },
       gotoPromotionDesc () {
         this.currentItem = 'promotionDesc'
         this.$router.push('/promotion/desc')
+        window.localStorage.currentTab = 'promotion'
+        window.localStorage.currentItem = 'promotionDesc'
       },
       gotoPromotionList () {
         this.currentItem = 'promotionList'
         this.$router.push('/promotion/list')
+        window.localStorage.currentTab = 'promotion'
+        window.localStorage.currentItem = 'promotionList'
       },
       gotoAdvertise () {
         this.$router.push('/advertise/list')
         this.currentItem = 'advertiseList'
+        window.localStorage.currentTab = 'advertise'
+        window.localStorage.currentItem = 'advertiseList'
       },
       gotoFinishPushAdvertise () {
         this.$router.push('/advertise/pushList')
         this.currentItem = 'advertisePush'
+        window.localStorage.currentTab = 'advertise'
+        window.localStorage.currentItem = 'advertisePush'
       },
       gotoOrderList () {
         this.$router.push('/report/order')
         this.currentItem = 'reportList'
+        window.localStorage.currentTab = 'report'
+        window.localStorage.currentItem = 'reportList'
       },
       gotoFillGoodsList () {
         this.$router.push('/report/fillGoods')
         this.currentItem = 'reportFill'
+        window.localStorage.currentTab = 'report'
+        window.localStorage.currentItem = 'reportFill'
       },
       gotoProfitReport () {
         this.$router.push('/report/profit')
         this.currentItem = 'reportProfit'
+        window.localStorage.currentTab = 'report'
+        window.localStorage.currentItem = 'reportProfit'
       },
       gotoPayTypeList () {
         this.$router.push('/system/sysPay')
         this.currentItem = 'systemPaytype'
+        window.localStorage.currentTab = 'system'
+        window.localStorage.currentItem = 'systemPaytype'
       },
       gotoAndroidVersionList () {
         this.$router.push('/system/sysAndroid')
         this.currentItem = 'systemAndroidV'
+        window.localStorage.currentTab = 'system'
+        window.localStorage.currentItem = 'systemAndroidV'
       },
       gotoGoods () {
         this.$router.push('/goods/list')
         this.currentItem = 'systemGoods'
+        window.localStorage.currentTab = 'system'
+        window.localStorage.currentItem = 'systemGoods'
       },
       gotoEgocard () {
         this.$router.push('/system/sysEgocard')
         this.currentItem = 'systemEgocard'
+        window.localStorage.currentTab = 'system'
+        window.localStorage.currentItem = 'systemEgocard'
       },
       gotoEgocardCreate () {
         this.$router.push('/system/sysEgocardCreate')
         this.currentItem = 'systemEgocardcreate'
+        window.localStorage.currentTab = 'system'
+        window.localStorage.currentItem = 'systemEgocardcreate'
       },
       gotoMercardCreate () {
         this.$router.push('/system/sysMercardCreate')
         this.currentItem = 'systemMercardcreate'
+        window.localStorage.currentTab = 'system'
+        window.localStorage.currentItem = 'systemMercardcreate'
       },
       gotoOrgTree () {
         this.$router.push('/org')
@@ -307,6 +378,8 @@
         this.show.report = false
         this.show.system = false
         this.currentTab = 'orgtree'
+        window.localStorage.currentTab = 'orgtree'
+        window.localStorage.currentItem = ''
       },
       gotoUserList () {
         this.$router.push('/user/list')
@@ -316,6 +389,8 @@
         this.show.report = false
         this.show.system = false
         this.currentTab = 'user'
+        window.localStorage.currentTab = 'user'
+        window.localStorage.currentItem = ''
       },
       gotoRoleList () {
         this.$router.push('/role/list')
@@ -325,6 +400,8 @@
         this.show.report = false
         this.show.system = false
         this.currentTab = 'role'
+        window.localStorage.currentTab = 'role'
+        window.localStorage.currentItem = ''
       }
     },
     components: {}
