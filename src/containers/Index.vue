@@ -53,7 +53,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   #container {
     height: 100%;
     overflow: auto;

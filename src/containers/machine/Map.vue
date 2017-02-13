@@ -17,7 +17,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss">
   .map-view {
     width: 400px;
     height: 300px;

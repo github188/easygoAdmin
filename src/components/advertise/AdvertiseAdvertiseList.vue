@@ -153,7 +153,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   .url {
     width: 16em;
     white-space: nowrap;

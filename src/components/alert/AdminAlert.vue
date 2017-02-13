@@ -41,7 +41,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   .adminAlert {
     top: 10px;
     left: 50%;

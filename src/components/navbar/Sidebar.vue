@@ -331,13 +331,14 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  .main-sidebar{
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .main-sidebar {
     border-right: 1px solid #d2d6de;
   }
+
   a {
     cursor: pointer;
-    user-select:none;
+    user-select: none;
   }
 
   .treeview-menu {

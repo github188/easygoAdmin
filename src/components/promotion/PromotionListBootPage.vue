@@ -221,7 +221,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   .boot-select {
     width: 80px;
   }
