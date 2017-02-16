@@ -14,10 +14,9 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <treecontrol class="tree-classic" tree-model="treeData"
-                         on-selection="showSelected(node)" expanded-nodes="expandedNodes"
-                         options="treeOptions"> {{node.orgName}}
-            </treecontrol>
+            <ul v-for="(orgData,index) in orgDatas">
+              <machinelistorg :model="orgData"></machinelistorg>
+            </ul>
           </div>
           <!-- /.box-body -->
         </div>
@@ -148,9 +147,11 @@
                       </li>
                     </ul>
                   </div>
-                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-default online"
+                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)"
+                        class="label label-default online"
                         v-show=''>离线</span>
-                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)" class="label label-success online"
+                  <span v-my-tooltip.top-center="dateInit(machine.offlineOrOnlineTime)"
+                        class="label label-success online"
                   >在线</span>
                 </td>
               </tr>
@@ -168,6 +169,7 @@
 <script>
   import axios from 'axios'
   import bootPage from './MachineListBootPage'
+  import machinelistorg from './MachineListOrg'
   export default{
     name: 'MachineMachineList',
     data () {
@@ -182,11 +184,13 @@
         len: 10,
         pageLen: 5, // 可显示的分页数
         // 总页数
-        pageTotal: 0
+        pageTotal: 0,
+        orgDatas: null
       }
     },
     components: {
-      bootPage
+      bootPage,
+      machinelistorg
     },
     watch: {
       page (val) {
@@ -209,6 +213,12 @@
     },
     mounted () {
       let _this = this
+      axios.get('http://localhost:9999/org'
+      ).then(function (res) {
+        if (res.data) {
+          _this.orgDatas = res.data
+        }
+      })
       axios.post('http://localhost:9999/machine/page',
         {pageNumber: _this.page, pageSize: _this.len}
       ).then(function (res) {
@@ -265,10 +275,13 @@
   }
 </script>
 
-<style lang="scss">
-  .online{
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .online {
     cursor: help;
   }
+ul{
+  padding-left: 15px;
+}
   .slide-fade-enter-active {
     transition: all .3s ease;
     height: 100%;

@@ -87,6 +87,24 @@ app.put('/users/editPwd', function(req, res) {
   console.log('newPwd')
 });
 
+app.get('/goods/subject', function (req, res) {
+  if (req.query.skuBrand === '鹰牌') {
+    var data = Mock.mock(["清湿茶"])
+    res.send(JSON.stringify(data))
+  } else if (req.query.skuBrand === '维他') {
+    var data = Mock.mock(["原味豆奶","巧克力味豆奶"])
+    res.send(JSON.stringify(data))
+  }
+  console.log('goodssubject')
+})
+
+app.get('/org', function (req, res) {
+
+    var data = Mock.mock([{"orgId":"01","orgName":"前海易购","upOrgId":"0","level":"1","status":"1","childrens":[{"orgId":"0101","orgName":"测试组织","upOrgId":"01","level":"2","status":"1","childrens":[{"orgId":"010101","orgName":"金雨","upOrgId":"0101","level":"3","status":"1","childrens":[{"orgId":"01010101","orgName":"a","upOrgId":"010101","level":"4","status":"1","childrens":[{"orgId":"0101010101","orgName":"aa","upOrgId":"01010101","level":"5","status":"1","childrens":[]}]}]}]},{"orgId":"0102","orgName":"光明乳业","upOrgId":"01","level":"2","status":"1","childrens":[{"orgId":"010201","orgName":"番禺区","upOrgId":"0102","level":"3","status":"1","childrens":[]}]},{"orgId":"0103","orgName":"我的组织","upOrgId":"01","level":"2","status":"1","childrens":[]},{"orgId":"0105","orgName":"友芝友乳业","upOrgId":"01","level":"2","status":"1","childrens":[]},{"orgId":"0106","orgName":"杭州地区","upOrgId":"01","level":"2","status":"1","childrens":[]},{"orgId":"019999999999999999999","orgName":"未归属机器","upOrgId":"01","level":"2","status":"1","childrens":[]}]}])
+    res.send(JSON.stringify(data))
+
+  console.log('org')
+})
 
 app.get('/machineType', function(req, res) {
   var data = Mock.mock([{"machineTypeId":4,"typeName":"旧三号机","aisleRowNumber":6,"aisleColumnNumber":6,"screenSize":7,"enableTouch":"0","haveSelectGoodsButton":"0","haveNumberKeyboard":"1","controlBoardType":"ZJ","gmtCreated":1446106859000,"gmtModified":1463561310000},{"machineTypeId":5,"typeName":"老一号机","aisleRowNumber":5,"aisleColumnNumber":6,"screenSize":32,"enableTouch":"0","haveSelectGoodsButton":"1","haveNumberKeyboard":"0","controlBoardType":"EG","gmtCreated":1446106967000,"gmtModified":1463560823000},{"machineTypeId":6,"typeName":"旧一号机","aisleRowNumber":5,"aisleColumnNumber":6,"screenSize":32,"enableTouch":"0","haveSelectGoodsButton":"1","haveNumberKeyboard":"0","controlBoardType":"ZJ","gmtCreated":1446437223000,"gmtModified":1463561319000},{"machineTypeId":8,"typeName":"易购一号机","aisleRowNumber":5,"aisleColumnNumber":6,"screenSize":32,"enableTouch":"0","haveSelectGoodsButton":"1","haveNumberKeyboard":"0","controlBoardType":"NEG","gmtCreated":1451454875000,"gmtModified":1463560850000},{"machineTypeId":9,"typeName":"易购三号机","aisleRowNumber":6,"aisleColumnNumber":6,"screenSize":7,"enableTouch":"0","haveSelectGoodsButton":"0","haveNumberKeyboard":"1","controlBoardType":"NEG","gmtCreated":1457341045000,"gmtModified":1463560927000},{"machineTypeId":10,"typeName":"易触二号机","aisleRowNumber":21,"aisleColumnNumber":3,"screenSize":32,"enableTouch":"1","haveSelectGoodsButton":"1","haveNumberKeyboard":"0","controlBoardType":"YC","gmtCreated":1472528990000,"gmtModified":1477548095000},{"machineTypeId":11,"typeName":"易购二号机","aisleRowNumber":24,"aisleColumnNumber":1,"screenSize":13,"enableTouch":"0","haveSelectGoodsButton":"0","haveNumberKeyboard":"1","controlBoardType":"JY","gmtCreated":1474801049000,"gmtModified":1477636537000},{"machineTypeId":12,"typeName":"易购八号机","aisleRowNumber":4,"aisleColumnNumber":4,"screenSize":7,"enableTouch":"0","haveSelectGoodsButton":"0","haveNumberKeyboard":"0","controlBoardType":"CHZH","gmtCreated":1482388467000,"gmtModified":1482389190000}])

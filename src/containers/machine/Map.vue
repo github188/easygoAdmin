@@ -17,13 +17,16 @@
           :copyright="copyright"/>
         <map-control-scale anchor="BMAP_ANCHOR_TOP_RIGHT"/>
         <map-control-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"/>
+        <map-overlay-info-window :position="infowindowposition"
+                                 :show="infoWindow.show" @close="infoWindowClose" @open="infoWindowOpen">
+          <MachineMapInfoWindow :machineCode="infoWindow.machineCode"
+                                :address="infoWindow.address"></MachineMapInfoWindow>
+        </map-overlay-info-window>
         <map-overlay-marker v-for="(machinemap,index) in machinemaps"
                             :point="{lng: machinemap.locationLongitude, lat: machinemap.locationLatitude}"
-                            @click="marker(index)"/>
-        <!--<map-overlay-info-window :position="infowindowposition"-->
-                                 <!--:show="infoWindow.show" @close="infoWindowClose" @open="infoWindowOpen">-->
-          <!--<p>{{infoWindow.contents}}</p>-->
-        <!--</map-overlay-info-window>-->
+                            @click="marker(index)"
+                            :massClear="false"/>
+
       </map-view>
     </baidu-map>
   </div>
@@ -31,6 +34,7 @@
 
 <script>
   import axios from 'axios'
+  import MachineMapInfoWindow from '../../components/machine/MachineMapInfoWindow'
   export default{
     name: 'MachineMap',
     data () {
@@ -48,13 +52,22 @@
         machinemaps: [],
         infowindowposition: null,
         infoWindow: {
-          show: false,
-          contents: ''
+          show: false
         }
       }
     },
-    components: {},
+    components: {
+      MachineMapInfoWindow
+    },
     mounted () {
+      let _this = this
+      axios.get('http://localhost:9999/machine/machinemap').then(function (res) {
+        if (res.data) {
+          _this.machinemaps = res.data
+        }
+      })
+    },
+    beforeUpdated () {
       let _this = this
       _this.machinemaps = []
       axios.get('http://localhost:9999/machine/machinemap').then(function (res) {
@@ -75,26 +88,12 @@
         this.zoom = e.target.getZoom()
       },
       marker (index) {
-        // let machineCode = this.machinemaps[index].machineCode
-        // let address = 'wori'
-        // this.infowindowposition = {lng: this.machinemaps[index].locationLongitude, lat: this.machinemaps[index].locationLatitude}
-        // this.infoWindow.contents = '<form class="form-horizontal">' +
-        //   '<div class="form-group"> ' +
-        //   '<label class="col-md-5 control-label">机器编号:</label> ' +
-        //   '<div class="col-md-5">' +
-        //   '<p class="form-control-static">' + machineCode +
-        //   '</p>' +
-        //   '</div>' +
-        //   '</div>' +
-        //   '<div class="form-group"> ' +
-        //   '<label class="col-md-5 control-label">机器位置:</label> ' +
-        //   '<div class="col-md-5">' +
-        //   '<p class="form-control-static">' + address +
-        //   '</p>' +
-        //   '</div>' +
-        //   '</div>' +
-        //   '</form>'
-        // console.log(this.infoWindow.contents)
+        this.infoWindow.machineCode = this.machinemaps[index].machineCode
+        this.infoWindow.address = 'wori'
+        this.infowindowposition = {
+          lng: this.machinemaps[index].locationLongitude,
+          lat: this.machinemaps[index].locationLatitude
+        }
       },
       infoWindowClose (e) {
         this.infoWindow.show = false
