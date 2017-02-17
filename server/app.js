@@ -6,6 +6,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
+var superagent = require('superagent'); //http://visionmedia.github.io/superagent/#response-properties 文档地址
 var server = http.Server(app);
 var host = 'http://localhost:';
 var port = 9999; //设置本地转发服务端口
@@ -191,4 +192,18 @@ app.get('/machine/machinemap', function (req, res) {
     res.send(JSON.stringify(data))
 
   console.log('machineMap')
+})
+
+app.get('/api/map', function (req, res) {
+  console.log(req.query.lat)
+  console.log(req.query.lng)
+  var sreq = superagent.get('http://api.map.baidu.com/geocoder/v2/?location=39.983424,116.322987&output=json&pois=1&ak=zYXlh8Vw8MzRKp3H6qRvQeqCYMMSrxby');
+  sreq.type('json')
+  sreq.query('search=Manny')
+  sreq.pipe(res);
+  sreq.end( function() {
+    console.log('baidumap')
+  });
+
+
 })

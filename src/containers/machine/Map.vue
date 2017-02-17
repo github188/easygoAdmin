@@ -10,7 +10,9 @@
                 :min-zoom="minZoom"
                 @moving="syncCenter"
                 @moveend="syncCenter"
-                @zoomend="syncZoom">
+                @zoomend="syncZoom"
+                @click="mapviewinit"
+                :style="{ height: mapviewHeight + 'px'}">>
 
         <map-control-copyright
           anchor="BMAP_ANCHOR_TOP_LEFT"
@@ -41,7 +43,7 @@
       return {
         center: {
           lng: 113.257114,
-          lat: 23.136449
+          lat: 28.136449
         },
         zoom: 6,
         minZoom: 6,
@@ -58,6 +60,17 @@
     },
     components: {
       MachineMapInfoWindow
+    },
+    computed: {
+      mapviewHeight () {
+        if (window.screen < 768) {
+          let height = window.screen.height * 1.46
+          return height
+        } else {
+          let height = window.screen.height * 0.8
+          return height
+        }
+      }
     },
     mounted () {
       let _this = this
@@ -87,12 +100,43 @@
       syncZoom (e) {
         this.zoom = e.target.getZoom()
       },
+      mapviewinit () {
+        // this.infoWindow.show = false
+      },
       marker (index) {
-        this.infoWindow.machineCode = this.machinemaps[index].machineCode
-        this.infoWindow.address = 'wori'
-        this.infowindowposition = {
-          lng: this.machinemaps[index].locationLongitude,
-          lat: this.machinemaps[index].locationLatitude
+        let _this = this
+        axios.get('http://api.map.baidu.com/geocoder/v2/', {
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          params: {
+            location: _this.machinemaps[index].locationLatitude + ',' + _this.machinemaps[index].locationLongitude,
+            output: 'json',
+            pois: 1,
+            ak: 'zYXlh8Vw8MzRKp3H6qRvQeqCYMMSrxby'
+          }
+        }).then(function (res) {
+          console.log(res)
+        })
+        // axios.get('http://localhost:9999/api/map', {
+        //   params: {
+        //     lng: _this.machinemaps[index].locationLongitude,
+        //     lat: _this.machinemaps[index].locationLatitude
+        //   }
+        // }).then(function (res) {
+        //   console.log(res)
+        // })
+        _this.infoWindow.machineCode = _this.machinemaps[index].machineCode
+
+        _this.infoWindow.show = true
+        _this.infoWindow.address = 'wori'
+        _this.center = {
+          lng: _this.machinemaps[index].locationLongitude,
+          lat: _this.machinemaps[index].locationLatitude
+        }
+        _this.infowindowposition = {
+          lng: _this.machinemaps[index].locationLongitude,
+          lat: _this.machinemaps[index].locationLatitude
         }
       },
       infoWindowClose (e) {
@@ -109,7 +153,6 @@
 <style lang="scss" rel="stylesheet/scss">
   .map-view {
     width: 100%;
-    height: 730px;
   }
 
   .copyrightoffset {

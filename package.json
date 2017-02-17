@@ -15,7 +15,7 @@
   "dependencies": {
     "v-tooltip": "^1.1.2",
     "vue": "^2.1.0",
-    "vue-baidu-map": "0.0.7",
+    "vue-baidu-map": "0.0.8",
     "vue-msgbox": "^0.2.14"
   },
   "devDependencies": {
